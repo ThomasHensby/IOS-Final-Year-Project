@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>763720331184-ltedv0b8jl7rp6kove3kmobkmojc2a01.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.763720331184-ltedv0b8jl7rp6kove3kmobkmojc2a01</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCg9fZx7fikzII3a2mtk0lMWWug_wWYmvo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>763720331184</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Final-Year.LoginApplication</string>
+	<key>PROJECT_ID</key>
+	<string>game-helper-8d79a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>game-helper-8d79a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:763720331184:ios:109ba495d1fde55e47f075</string>
+</dict>
+</plist>

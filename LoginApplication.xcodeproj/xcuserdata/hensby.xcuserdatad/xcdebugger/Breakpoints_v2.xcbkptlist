@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "E0A969E6-33ED-4059-82FB-F01DE5BBD557"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E79B40C2-A0D0-4081-B774-87AD2550EDEA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoginApplication/View Controllers/LoginViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E79B40C2-A0D0-4081-B774-87AD2550EDEA - 35129aa013dee2bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.LoginViewController.usernameTextField.getter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "E79B40C2-A0D0-4081-B774-87AD2550EDEA - 5fcd487a891b3eaf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.LoginViewController.usernameTextField.setter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "E79B40C2-A0D0-4081-B774-87AD2550EDEA - 89b75ae11b297be9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.LoginViewController.usernameTextField.modify : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "E79B40C2-A0D0-4081-B774-87AD2550EDEA - 46a42842d31290ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.LoginViewController.usernameTextField.modify : Swift.Optional&lt;__C.UITextField&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "E79B40C2-A0D0-4081-B774-87AD2550EDEA - eff71bfc0405e3a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.LoginViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; LoginApplication.LoginViewController"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "E79B40C2-A0D0-4081-B774-87AD2550EDEA - 2946d399c6004e1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.LoginViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;LoginApplication.LoginViewController&gt;"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5DC8DBB2-0662-4F1E-9094-2980BF0B5EBE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoginApplication/View Controllers/LoginViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "LoginViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "5DC8DBB2-0662-4F1E-9094-2980BF0B5EBE - f6e4340875ac0714"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.LoginViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; LoginApplication.LoginViewController"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "5DC8DBB2-0662-4F1E-9094-2980BF0B5EBE - eff71bfc0405e349"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.LoginViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; LoginApplication.LoginViewController"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "5DC8DBB2-0662-4F1E-9094-2980BF0B5EBE - 5fefae471157e717"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.LoginViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;LoginApplication.LoginViewController&gt;"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "5DC8DBB2-0662-4F1E-9094-2980BF0B5EBE - 2946d399c600400"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.LoginViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;LoginApplication.LoginViewController&gt;"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "5DC8DBB2-0662-4F1E-9094-2980BF0B5EBE - c396d5f286c1dd9f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.LoginViewController.__deallocating_deinit"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E8FDA05E-99EE-4C5C-88F2-ECEAEEA2E1C8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoginApplication/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4CBBD899-A0AC-47A5-A72D-092B7DB93840"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoginApplication/View Controllers/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "4CBBD899-A0AC-47A5-A72D-092B7DB93840 - 8825bb0398b2d969"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.ViewController.loginButton.getter : Swift.Optional&lt;__C.UIButton&gt;"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "4CBBD899-A0AC-47A5-A72D-092B7DB93840 - 4221d031aad0897d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.ViewController.loginButton.setter : Swift.Optional&lt;__C.UIButton&gt;"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "4CBBD899-A0AC-47A5-A72D-092B7DB93840 - d015534cba9072db"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.ViewController.loginButton.modify : Swift.Optional&lt;__C.UIButton&gt;"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "4CBBD899-A0AC-47A5-A72D-092B7DB93840 - dd058473e624f513"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.ViewController.loginButton.modify : Swift.Optional&lt;__C.UIButton&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "4CBBD899-A0AC-47A5-A72D-092B7DB93840 - a7a5eef112e2ef66"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; LoginApplication.ViewController"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "4CBBD899-A0AC-47A5-A72D-092B7DB93840 - 11d145ef4a7b47d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginApplication.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;LoginApplication.ViewController&gt;"
+                  moduleName = "LoginApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hensby/Documents/University/LoginApplication/LoginApplication/View%20Controllers/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
