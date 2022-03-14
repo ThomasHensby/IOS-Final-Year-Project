@@ -7,20 +7,15 @@
 
 import UIKit
 import FirebaseAuth
-import Firebase
+import FirebaseFirestore
+
 
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
-   
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var signUpButton: UIButton!
-    
-    
     @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
@@ -59,7 +54,7 @@ class SignUpViewController: UIViewController {
         
         if Utilities.isPasswordValid(cleanedPassword) == false {
             //password isnt secure
-            return "Please make sure your password is at least 8 characters, contains a speical character and a number."
+            return "Please make sure your password is at /n least 8 characters, contains a special character and a number."
         }
         
         return nil
@@ -76,8 +71,13 @@ class SignUpViewController: UIViewController {
             
         }
         else {
+            //create cleaned data
+            let username = usernameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
             //create the user
-            Auth.auth().createUser(withEmail: <#T##String#>, password: <#T##String#>) { result, err in
+            Auth.auth().createUser(withEmail: email, password: password) { (result , err) in
                 
                 //check for errors
                 if err != nil{
@@ -86,11 +86,23 @@ class SignUpViewController: UIViewController {
                 }
                 else{
                     //user was created successfully,now store the username
+                    let db = Firestore.firestore()
+                    
+                    db.collection("users").addDocument(data:["username":username , "uid": result!.user.uid]) { (error) in
+                        
+                        if error != nil {
+                            //SHOW ERROR MESSAGE
+                            self.showError("error saving user data")
+                        }
+                    }
+                    
+                    //transition to homepage
+                    self.transitionToHome()
                     
                 }
             }
             
-            //transition to scheduling
+            
         }
         
       
@@ -98,6 +110,13 @@ class SignUpViewController: UIViewController {
     func showError(_  message:String) {
         errorLabel.text = message
         errorLabel.alpha = 1
+    }
+    
+    func transitionToHome() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainNav = storyboard.instantiateViewController(identifier: "mainNav")
+        
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainNav)
     }
     
 }
