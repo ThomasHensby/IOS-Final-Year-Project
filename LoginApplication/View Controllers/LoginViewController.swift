@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         //Sign in the user
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+        Auth.auth().signIn(withEmail: email, password: password) {  result, error in
             
             if error != nil {
                 //couldnt sign in

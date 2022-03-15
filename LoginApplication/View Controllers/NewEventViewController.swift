@@ -34,7 +34,7 @@ class NewEventViewController: UIViewController {
         //get eventlist and append new event
         eventsList.append(newEvent)
         //go back to previous viewcontroller after saving event
-        navigationController?.popViewController(animated: true)
+        navigationController?.storyboard?.instantiateViewController(identifier: "mainNav")
         
         
         

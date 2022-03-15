@@ -30,7 +30,8 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         navigationController?.storyboard?.instantiateViewController(withIdentifier: "mainNav")
         setCellView()
         setWeekView()
-        tableView.backgroundColor = UIColor.lightGray
+       
+    
         
     }
     //setting selected dates
@@ -86,27 +87,8 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         tableView.reloadData()
     }
     
-    //Hamburger menu Function so that pops out
-    @IBAction func menuTapped(_ sender: Any) {
-        if menuOut == false {
-            leading.constant = 160
-            trailing.constant = -150
-            menuOut = true
-        }
-        else{
-            leading.constant = 0
-            trailing.constant = 0
-            menuOut = false
-        }
-        //Soft animation of the menu popout
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
-            self.view.layoutIfNeeded()
-        }) {( animationComplete) in
-        print("the annimation is complete")
-        }
-        
-       
-    }
+   
+    
     
     @IBAction func previousWeek(_ sender: Any) {
         selectedDate = CalendarHelper().addDays(date: selectedDate, days: -7)

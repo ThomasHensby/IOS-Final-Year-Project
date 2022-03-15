@@ -20,10 +20,6 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      
-
-        // Do any additional setup after loading the view.
         setUpElements()
     }
     
@@ -35,11 +31,8 @@ class SignUpViewController: UIViewController {
         
         //styling of elements
         Utilities.styleTextField(usernameTextField)
-        
         Utilities.styleTextField(emailTextField)
-        
         Utilities.styleTextField(passwordTextField)
-        
         Utilities.styleFilledButton(signUpButton)
     }
 
@@ -89,7 +82,6 @@ class SignUpViewController: UIViewController {
                     let db = Firestore.firestore()
                     
                     db.collection("users").addDocument(data:["username":username , "uid": result!.user.uid]) { (error) in
-                        
                         if error != nil {
                             //SHOW ERROR MESSAGE
                             self.showError("error saving user data")

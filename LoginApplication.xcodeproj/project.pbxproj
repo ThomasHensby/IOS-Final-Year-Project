@@ -49,6 +49,7 @@
 		9AC60FCA27DED476000C5555 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FC927DED476000C5555 /* EventCell.swift */; };
 		9AC60FCE27DED59B000C5555 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FCD27DED59B000C5555 /* NewEventViewController.swift */; };
 		9AC60FD027DED756000C5555 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FCF27DED756000C5555 /* Event.swift */; };
+		9AC60FF227E0E708000C5555 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FF127E0E708000C5555 /* Message.swift */; };
 		9ADC6DCE27BAC8A500CDC052 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADC6DCD27BAC8A500CDC052 /* CalendarHelper.swift */; };
 		9ADC6DD027BAC92000CDC052 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADC6DCF27BAC92000CDC052 /* CalendarCell.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		9AC60FC927DED476000C5555 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		9AC60FCD27DED59B000C5555 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		9AC60FCF27DED756000C5555 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		9AC60FF127E0E708000C5555 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9ADC6DCD27BAC8A500CDC052 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		9ADC6DCF27BAC92000CDC052 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,9 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				9A141FBC278360B8005D0362 /* SignUpViewController.swift */,
+				9A5D4604278C7B210018A096 /* LoginViewController.swift */,
 				9A141FBE278360CE005D0362 /* HomeViewController.swift */,
 				9AACDDE6277B871200110099 /* ViewController.swift */,
-				9A5D4604278C7B210018A096 /* LoginViewController.swift */,
 				9AC60FCD27DED59B000C5555 /* NewEventViewController.swift */,
 			);
 			path = "View Controllers";
@@ -134,6 +136,7 @@
 				9A5D4651278DFCB20018A096 /* Constants.swift */,
 				9AC60FC927DED476000C5555 /* EventCell.swift */,
 				9AC60FCF27DED756000C5555 /* Event.swift */,
+				9AC60FF127E0E708000C5555 /* Message.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				9AC60FCE27DED59B000C5555 /* NewEventViewController.swift in Sources */,
 				9ADC6DD027BAC92000CDC052 /* CalendarCell.swift in Sources */,
 				9AC60FD027DED756000C5555 /* Event.swift in Sources */,
+				9AC60FF227E0E708000C5555 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
