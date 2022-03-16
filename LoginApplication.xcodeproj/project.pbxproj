@@ -49,7 +49,10 @@
 		9AC60FCA27DED476000C5555 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FC927DED476000C5555 /* EventCell.swift */; };
 		9AC60FCE27DED59B000C5555 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FCD27DED59B000C5555 /* NewEventViewController.swift */; };
 		9AC60FD027DED756000C5555 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FCF27DED756000C5555 /* Event.swift */; };
-		9AC60FF227E0E708000C5555 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FF127E0E708000C5555 /* Message.swift */; };
+		9AC60FF727E110B8000C5555 /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC60FF627E110B8000C5555 /* MessageKit */; };
+		9AC60FF927E1124C000C5555 /* MessagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FF827E1124C000C5555 /* MessagerViewController.swift */; };
+		9AC60FFB27E11B4F000C5555 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FFA27E11B4F000C5555 /* SettingsViewController.swift */; };
+		9AC60FFD27E11DFE000C5555 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FFC27E11DFE000C5555 /* ChatViewController.swift */; };
 		9ADC6DCE27BAC8A500CDC052 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADC6DCD27BAC8A500CDC052 /* CalendarHelper.swift */; };
 		9ADC6DD027BAC92000CDC052 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADC6DCF27BAC92000CDC052 /* CalendarCell.swift */; };
 /* End PBXBuildFile section */
@@ -72,7 +75,9 @@
 		9AC60FC927DED476000C5555 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		9AC60FCD27DED59B000C5555 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		9AC60FCF27DED756000C5555 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		9AC60FF127E0E708000C5555 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		9AC60FF827E1124C000C5555 /* MessagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagerViewController.swift; sourceTree = "<group>"; };
+		9AC60FFA27E11B4F000C5555 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9AC60FFC27E11DFE000C5555 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		9ADC6DCD27BAC8A500CDC052 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		9ADC6DCF27BAC92000CDC052 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +90,7 @@
 				9A5D4634278CA3100018A096 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				9A5D462E278CA3100018A096 /* FirebaseDatabaseSwift-Beta in Frameworks */,
 				9A5D4630278CA3100018A096 /* FirebaseDynamicLinks in Frameworks */,
+				9AC60FF727E110B8000C5555 /* MessageKit in Frameworks */,
 				9A5D464C278CA3100018A096 /* FirebaseStorage in Frameworks */,
 				9A5D4622278CA3100018A096 /* FirebaseAppCheck in Frameworks */,
 				9A5D4650278CA3100018A096 /* FirebaseStorageSwift-Beta in Frameworks */,
@@ -123,6 +129,9 @@
 				9A141FBE278360CE005D0362 /* HomeViewController.swift */,
 				9AACDDE6277B871200110099 /* ViewController.swift */,
 				9AC60FCD27DED59B000C5555 /* NewEventViewController.swift */,
+				9AC60FF827E1124C000C5555 /* MessagerViewController.swift */,
+				9AC60FFA27E11B4F000C5555 /* SettingsViewController.swift */,
+				9AC60FFC27E11DFE000C5555 /* ChatViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -136,7 +145,6 @@
 				9A5D4651278DFCB20018A096 /* Constants.swift */,
 				9AC60FC927DED476000C5555 /* EventCell.swift */,
 				9AC60FCF27DED756000C5555 /* Event.swift */,
-				9AC60FF127E0E708000C5555 /* Message.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -217,6 +225,7 @@
 				9A5D464B278CA3100018A096 /* FirebaseStorage */,
 				9A5D464D278CA3100018A096 /* FirebaseStorageCombine-Community */,
 				9A5D464F278CA3100018A096 /* FirebaseStorageSwift-Beta */,
+				9AC60FF627E110B8000C5555 /* MessageKit */,
 			);
 			productName = LoginApplication;
 			productReference = 9AACDDDF277B871200110099 /* LoginApplication.app */;
@@ -248,6 +257,7 @@
 			mainGroup = 9AACDDD6277B871200110099;
 			packageReferences = (
 				9A5D461A278CA3100018A096 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				9AC60FF527E110B8000C5555 /* XCRemoteSwiftPackageReference "MessageKit" */,
 			);
 			productRefGroup = 9AACDDE0277B871200110099 /* Products */;
 			projectDirPath = "";
@@ -277,20 +287,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AC60FF927E1124C000C5555 /* MessagerViewController.swift in Sources */,
 				9A5D4605278C7B210018A096 /* LoginViewController.swift in Sources */,
 				9AACDDE7277B871200110099 /* ViewController.swift in Sources */,
 				9A863F4C278C628A00E098E6 /* Utilities.swift in Sources */,
 				9AC60FCA27DED476000C5555 /* EventCell.swift in Sources */,
 				9AACDDE3277B871200110099 /* AppDelegate.swift in Sources */,
 				9AACDDE5277B871200110099 /* SceneDelegate.swift in Sources */,
+				9AC60FFB27E11B4F000C5555 /* SettingsViewController.swift in Sources */,
 				9ADC6DCE27BAC8A500CDC052 /* CalendarHelper.swift in Sources */,
 				9A141FBD278360B8005D0362 /* SignUpViewController.swift in Sources */,
 				9A141FBF278360CE005D0362 /* HomeViewController.swift in Sources */,
+				9AC60FFD27E11DFE000C5555 /* ChatViewController.swift in Sources */,
 				9A5D4652278DFCB20018A096 /* Constants.swift in Sources */,
 				9AC60FCE27DED59B000C5555 /* NewEventViewController.swift in Sources */,
 				9ADC6DD027BAC92000CDC052 /* CalendarCell.swift in Sources */,
 				9AC60FD027DED756000C5555 /* Event.swift in Sources */,
-				9AC60FF227E0E708000C5555 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +534,14 @@
 				kind = branch;
 			};
 		};
+		9AC60FF527E110B8000C5555 /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -659,6 +679,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9A5D461A278CA3100018A096 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageSwift-Beta";
+		};
+		9AC60FF627E110B8000C5555 /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9AC60FF527E110B8000C5555 /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

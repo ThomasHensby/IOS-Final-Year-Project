@@ -5,8 +5,6 @@ target 'LoginApplication' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for LoginApplication
-	pod 'Firebase/Analytics'
-	pod 'Firebase/Auth'
+pod 'MessageKit'
 
 end

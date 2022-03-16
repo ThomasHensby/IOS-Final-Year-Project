@@ -33,8 +33,10 @@ class NewEventViewController: UIViewController {
         
         //get eventlist and append new event
         eventsList.append(newEvent)
-        //go back to previous viewcontroller after saving event
-        navigationController?.storyboard?.instantiateViewController(identifier: "mainNav")
+        //go back to schdule after saving event
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainNav = storyboard.instantiateViewController(identifier: "mainNav")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainNav)
         
         
         

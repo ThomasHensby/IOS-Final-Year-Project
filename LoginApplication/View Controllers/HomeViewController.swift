@@ -60,7 +60,7 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         tableView.reloadData()
     }
     
-    
+    //Counting number of items
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         totalSquares.count
     }
@@ -80,7 +80,7 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         return cell
     }
     
-    //when collectionview is selected
+    //when date on collectionview is selected reload data
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedDate = totalSquares[indexPath.item]
         collectionView.reloadData()
@@ -89,12 +89,12 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
     
    
     
-    
+    //When Previous week button clicked -7 days from current days selection and recall function
     @IBAction func previousWeek(_ sender: Any) {
         selectedDate = CalendarHelper().addDays(date: selectedDate, days: -7)
         setWeekView()
     }
-    
+    //When next week button clicked +7 days from current days selection and recall function
     @IBAction func nextWeek(_ sender: Any) {
         selectedDate = CalendarHelper().addDays(date: selectedDate, days: 7)
         setWeekView()
@@ -115,7 +115,7 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
             //creating a reusable cell that can add multiple events from eventsForDate
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cellID") as! EventCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! EventCell
             let event = Event().eventsForDate(date: selectedDate)[indexPath.row]
             cell.eventLabel.text = event.name + " " + CalendarHelper().timeString(date: event.date)
             return cell
