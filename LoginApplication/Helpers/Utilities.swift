@@ -45,6 +45,11 @@ class Utilities {
         button.tintColor = UIColor.black
     }
     
+    static func styleLogo (_ imageView:UIImageView)
+    {
+        imageView.tintColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
+    }
+    
     static func isPasswordValid(_ password : String) -> Bool {
         
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageKit
 
 var selectedDate = Date()
 
@@ -30,8 +31,10 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         navigationController?.storyboard?.instantiateViewController(withIdentifier: "mainNav")
         setCellView()
         setWeekView()
-       
-    
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.dataSource
+        tableView.delegate
+        
         
     }
     //setting selected dates
@@ -109,15 +112,15 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
             //getting number of events
-            return Event().eventsForDate(date: selectedDate).count
+            Event().eventsForDate(date: selectedDate).count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
             //creating a reusable cell that can add multiple events from eventsForDate
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! EventCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: IndexPath.init())
             let event = Event().eventsForDate(date: selectedDate)[indexPath.row]
-            cell.eventLabel.text = event.name + " " + CalendarHelper().timeString(date: event.date)
+            cell.textLabel?.text = event.name + " " + CalendarHelper().timeString(date: event.date)
             return cell
     }
         
