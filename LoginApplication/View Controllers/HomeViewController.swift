@@ -7,6 +7,8 @@
 
 import UIKit
 import MessageKit
+import FirebaseAuth
+
 
 var selectedDate = Date()
 
@@ -32,11 +34,14 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         setCellView()
         setWeekView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.dataSource
-        tableView.delegate
         
-        
+    
     }
+    
+   
+    
+    
+    
     //setting selected dates
     func setCellView(){
         let width = (collectionView.frame.size.width - 2)/8

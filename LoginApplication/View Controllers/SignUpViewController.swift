@@ -27,21 +27,16 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func setUpElements(){
-        
-        
         //Hiding the error label
         errorLabel.alpha = 0
-        
         //styling of elements
         Utilities.styleTextField(usernameTextField)
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(signUpButton)
-        
         //As Dynamically changing image want to change look when image selected
         profilePicture.layer.masksToBounds = true
         profilePicture.layer.cornerRadius = profilePicture.bounds.width / 2
-        
         //allowing Interaction to be recognised on image view
         profilePicture.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self,
@@ -54,7 +49,8 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
 
     func validateFields() -> String? {
         //check for whitespaces
-        if usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+        if usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+        {
             
             return "please fill in all fields."
         }
@@ -80,7 +76,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         let error = validateFields()
         if error != nil {
             //something wrong with fields
-            showError(error!)
+            showError("error!")
             
         }
         else {
@@ -89,39 +85,41 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            //create the user
-            Auth.auth().createUser(withEmail: email, password: password, completion: { (result , err) in
-                
-                //check for errors
-                guard let res = result, err == nil else{
-                    //error creating the user
-                    self.showError("Error Creating User")
+            DatabaseManager.shared.userEmailExists(with: email, completion: {exists in
+                guard !exists else {
+                    //user already exists
+                    self.showError("This email is already in use!")
                     return
                 }
-                let user = res.user
-                
-                else{
-                    //user was created successfully,now store the username
-                    let db = Firestore.firestore()
-                    
-                    db.collection("users").addDocument(data:["username":username , "uid": result!.user.uid]) { (error) in
-                        if error != nil {
-                            //SHOW ERROR MESSAGE
-                            self.showError("error saving user data")
-                        }
+                //create the user
+                FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] result , err in
+                    guard let strongSelf = self else{
+                        return
                     }
-                    
+                    //check for errors
+                    guard result != nil, err == nil else{
+                        //error creating the user
+                        strongSelf.showError("Error Creating User")
+                        return
+                    }
+                    //insert in to firebase realtime db
+                    DatabaseManager.shared.insertUser(with: ChatAppUser(username: username,
+                                                                    email: email))
+                
+                    //strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                  
                     //transition to homepage
-                    self.transitionToHome()
+                    strongSelf.transitionToHome()
                     
-                }
-            }
-            
-            
+                })
+            })
         }
+            
+    }
+        
         
       
-    }
+    
     func showError(_  message:String) {
         errorLabel.text = message
         errorLabel.alpha = 1

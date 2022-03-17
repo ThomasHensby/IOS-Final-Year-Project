@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         setUpElements()
+        
     }
 
     func setUpElements() {
@@ -33,5 +34,9 @@ class ViewController: UIViewController {
         Utilities.styleLogo(logoImage)
         Utilities.styleFilledButton(signUpButton)
     }
+    
+    
+    
+                    
 }
 

@@ -49,16 +49,20 @@ class LoginViewController: UIViewController {
         //create cleaned text fields
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        //Sign in the user
-        Auth.auth().signIn(withEmail: email, password: password, completion:  {  result, error in
+        //Sign in the user and weak self stops retention cycle
+        Auth.auth().signIn(withEmail: email, password: password, completion:  { [weak self] result, error in
+            guard let strongSelf = self else{
+                return
+            }
             //check for errors
             guard let res = result, error == nil else {
                 //couldnt sign in
-                self.showError("Error signing in")
+                strongSelf.showError("Error signing in")
                 return
             }
             let user = res.user
-            self.transitionToHome()
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            strongSelf.transitionToHome()
             
         })
     }
