@@ -7,7 +7,7 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseFirestore
+
 
 
 class SignUpViewController: UIViewController, UINavigationControllerDelegate {
@@ -36,7 +36,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         Utilities.styleFilledButton(signUpButton)
         //As Dynamically changing image want to change look when image selected
         profilePicture.layer.masksToBounds = true
-        profilePicture.layer.cornerRadius = profilePicture.bounds.width / 2
+        profilePicture.layer.cornerRadius = profilePicture.bounds.width / 4
         //allowing Interaction to be recognised on image view
         profilePicture.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self,
@@ -80,22 +80,26 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
             
         }
         else {
-            //create cleaned data
+            //create cleaned data to input in db
             let username = usernameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            DatabaseManager.shared.userEmailExists(with: email, completion: {exists in
-                guard !exists else {
-                    //user already exists
-                    self.showError("This email is already in use!")
+            //Check db if email already in use weak self to stop retention issues
+            DatabaseManager.shared.userEmailExists(with: email, completion: { [weak self] exists in
+                guard let strongSelf = self else{
                     return
                 }
+                //Checking to see if user exists if does tells user the email is in use
+                guard !exists else {
+                    //user already exists
+                    strongSelf.showError("This email is already in use!")
+                    return
+                }
+                
                 //create the user
-                FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] result , err in
-                    guard let strongSelf = self else{
-                        return
-                    }
+                FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { result , err in
+                    
                     //check for errors
                     guard result != nil, err == nil else{
                         //error creating the user
@@ -106,7 +110,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
                     DatabaseManager.shared.insertUser(with: ChatAppUser(username: username,
                                                                     email: email))
                 
-                    //strongSelf.navigationController?.dismiss(animated: true, completion: nil)
                   
                     //transition to homepage
                     strongSelf.transitionToHome()

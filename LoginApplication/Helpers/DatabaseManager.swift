@@ -8,11 +8,19 @@
 import Foundation
 import FirebaseDatabase
 
+
 final class DatabaseManager {
     
     static let shared = DatabaseManager()
     
-    private let database = Database.database().reference()
+    private let database = Database.database(url: "https://game-helper-8d79a-default-rtdb.europe-west1.firebasedatabase.app/").reference()
+    
+    
+    ///Test to see if inputting data in realtime database
+    //public func test(){
+    //    database.child("foo").setValue(["something" : true])
+    //}
+    
     
 }
 
