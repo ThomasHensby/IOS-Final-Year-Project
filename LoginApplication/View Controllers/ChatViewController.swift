@@ -12,6 +12,7 @@ import MessageKit
 
 //decides placement of messages depending on sender or reciever
 struct Sender: SenderType{
+    //var photoURL: String
     var senderId: String
     var displayName: String
 }
@@ -29,8 +30,11 @@ struct Message: MessageType
 //messageViewController implements all user interface for messagelist
 class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate{
     
+    
     let currentUser = Sender(senderId: "self", displayName: "Thomas")
     let otherUser = Sender(senderId: "other", displayName: "John Smith")
+    
+    
     //create a variable to append messages to
     var messages = [MessageType]()
     

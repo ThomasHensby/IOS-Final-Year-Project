@@ -645,17 +645,7 @@
                             <constraint firstItem="e9U-ex-hWZ" firstAttribute="trailing" secondItem="6l3-tv-YlO" secondAttribute="trailing" id="tML-ET-twH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Message" id="nIT-Ze-7FO">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="CzD-93-q3P">
-                            <imageReference key="image" image="square.and.pencil" catalog="system" symbolScale="default"/>
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="uxh-Gd-V25">
-                                <rect key="frame" x="302" y="5" width="92" height="34.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Message" id="nIT-Ze-7FO"/>
                     <connections>
                         <outlet property="myTable" destination="6l3-tv-YlO" id="6jt-wN-0wS"/>
                     </connections>
@@ -689,29 +679,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="BQj-3B-G65">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="BQj-3B-G65">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dfs-aL-Jd8">
-                                        <rect key="frame" x="0.0" y="0.5" width="414" height="190.5"/>
+                                        <rect key="frame" x="0.0" y="0.5" width="414" height="57"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello - Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6v4-Xw-Xt7">
-                                        <rect key="frame" x="0.0" y="192.5" width="414" height="191.5"/>
+                                        <rect key="frame" x="0.0" y="59" width="414" height="233"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xZ-ae-r66">
-                                        <rect key="frame" x="0.0" y="385" width="414" height="191.5"/>
+                                        <rect key="frame" x="0.0" y="293" width="414" height="232.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Change Photo"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYC-Kf-aDG">
-                                        <rect key="frame" x="0.0" y="577.5" width="414" height="191.5"/>
+                                        <rect key="frame" x="0.0" y="526.5" width="414" height="242.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="BYC-Kf-aDG" firstAttribute="height" secondItem="0xZ-ae-r66" secondAttribute="height" constant="10" id="E0q-Fh-FSa"/>
+                                    <constraint firstItem="6v4-Xw-Xt7" firstAttribute="height" secondItem="Dfs-aL-Jd8" secondAttribute="height" multiplier="4" id="FoA-yp-PoU"/>
+                                    <constraint firstItem="0xZ-ae-r66" firstAttribute="height" secondItem="6v4-Xw-Xt7" secondAttribute="height" id="rvg-Sa-qD3"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Xj-yo-S82"/>
@@ -764,7 +759,6 @@
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
-        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
