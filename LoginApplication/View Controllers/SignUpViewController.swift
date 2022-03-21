@@ -107,8 +107,26 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
                         return
                     }
                     //insert in to firebase realtime db
-                    DatabaseManager.shared.insertUser(with: ChatAppUser(username: username,
-                                                                    email: email))
+                    let accountUser = ChatAppUser(username: username,
+                                                  email: email)
+                    DatabaseManager.shared.insertUser(with: accountUser, completion: {success in
+                        if success {
+                            //upload image
+                            guard let image = strongSelf.profilePicture.image, let data = image.pngData() else {
+                                return
+                            }
+                            let fileName = accountUser.profilePictureFileName
+                            StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: {result in
+                                switch result {
+                                case .success(let downloadUrl):
+                                    UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                    print(downloadUrl)
+                                case . failure(let error):
+                                    print("storage manager error \(error)")
+                                }
+                            })
+                        }
+                    } )
                 
                   
                     //transition to homepage

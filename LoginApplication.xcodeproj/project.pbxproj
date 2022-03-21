@@ -54,6 +54,7 @@
 		9AC60FFD27E11DFE000C5555 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FFC27E11DFE000C5555 /* ChatViewController.swift */; };
 		9AC6100127E3C9DD000C5555 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6100027E3C9DC000C5555 /* DatabaseManager.swift */; };
 		9AC6100327E56491000C5555 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6100227E56490000C5555 /* NewConversationViewController.swift */; };
+		9AC6100727E7ADE5000C5555 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6100627E7ADE5000C5555 /* StorageManager.swift */; };
 		9ADC6DCE27BAC8A500CDC052 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADC6DCD27BAC8A500CDC052 /* CalendarHelper.swift */; };
 		9ADC6DD027BAC92000CDC052 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADC6DCF27BAC92000CDC052 /* CalendarCell.swift */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		9AC60FFC27E11DFE000C5555 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		9AC6100027E3C9DC000C5555 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		9AC6100227E56490000C5555 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
+		9AC6100627E7ADE5000C5555 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		9ADC6DCD27BAC8A500CDC052 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		9ADC6DCF27BAC92000CDC052 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +150,7 @@
 				9A5D4651278DFCB20018A096 /* Constants.swift */,
 				9AC60FCF27DED756000C5555 /* Event.swift */,
 				9AC6100027E3C9DC000C5555 /* DatabaseManager.swift */,
+				9AC6100627E7ADE5000C5555 /* StorageManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				9AC6100127E3C9DD000C5555 /* DatabaseManager.swift in Sources */,
 				9AC60FF927E1124C000C5555 /* MessagerViewController.swift in Sources */,
 				9A5D4605278C7B210018A096 /* LoginViewController.swift in Sources */,
+				9AC6100727E7ADE5000C5555 /* StorageManager.swift in Sources */,
 				9AACDDE7277B871200110099 /* ViewController.swift in Sources */,
 				9A863F4C278C628A00E098E6 /* Utilities.swift in Sources */,
 				9AACDDE3277B871200110099 /* AppDelegate.swift in Sources */,
