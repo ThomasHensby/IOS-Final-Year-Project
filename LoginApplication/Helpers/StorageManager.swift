@@ -45,5 +45,20 @@ final class StorageManager {
         case failedTogetDownloadUrl
     }
     
+    ///download URL for the photo on the account
+    //escaping allows escape of asyncronous  execution block
+    public func downloadURL(for path: String, completion: @escaping (Result<URL, Error>) -> Void)
+    {
+        let reference = storage.child(path)
+        
+        reference.downloadURL(completion: {url, error in
+            guard let url = url, error == nil else {
+                completion(.failure(storageErrors.failedTogetDownloadUrl))
+                return
+            }
+            completion(.success(url))
+        })
+    }
+    
     
 }

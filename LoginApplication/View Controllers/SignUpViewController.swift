@@ -35,8 +35,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(signUpButton)
         //As Dynamically changing image want to change look when image selected
-        profilePicture.layer.masksToBounds = true
-        profilePicture.layer.cornerRadius = profilePicture.bounds.width / 4
+        Utilities.styleProfilePicture(profilePicture)
         //allowing Interaction to be recognised on image view
         profilePicture.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self,

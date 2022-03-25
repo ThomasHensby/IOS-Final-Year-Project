@@ -21,6 +21,12 @@ final class DatabaseManager {
     //    database.child("foo").setValue(["something" : true])
     //}
     
+    //need safe emails as firebase does not accept @ and . chars
+    static func safeEmail(email: String) -> String {
+        var safeEmail = email.replacingOccurrences(of: ".", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        return safeEmail
+    }
     
 }
 
@@ -54,6 +60,8 @@ extension DatabaseManager{
                 completion(false)
                 return
             }
+            
+            self.database.child("users")
             completion(true)
         })
     }
@@ -64,11 +72,12 @@ struct ChatAppUser {
     let email: String
     //let profilePic
     
-    var safeEmail: String {
+    var safeEmail: String{
         var safeEmail = email.replacingOccurrences(of: ".", with: "-")
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         return safeEmail
     }
+    
     
     var profilePictureFileName: String {
         return "\(safeEmail)_profile_picture.png"

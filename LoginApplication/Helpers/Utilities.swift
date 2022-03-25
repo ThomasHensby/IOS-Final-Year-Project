@@ -28,6 +28,16 @@ class Utilities {
         
     }
     
+    static func styleProfilePicture(_ imageView: UIImageView)
+    {
+        imageView.layer.borderWidth = 3
+        imageView.contentMode = .scaleToFill
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.cornerRadius = imageView.frame.height/2
+        imageView.clipsToBounds = true
+    }
+    
     static func styleFilledButton(_ button:UIButton) {
         
         // Filled rounded corner style
