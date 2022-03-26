@@ -675,8 +675,8 @@
             filePath = "LoginApplication/Helpers/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "userEmailExists(with:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -691,8 +691,8 @@
             filePath = "LoginApplication/Helpers/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "userEmailExists(with:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -771,8 +771,8 @@
             filePath = "LoginApplication/Helpers/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "getAllUsers(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -883,8 +883,8 @@
             filePath = "LoginApplication/Helpers/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "createNewConversation(with:firstMessage:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -899,8 +899,8 @@
             filePath = "LoginApplication/Helpers/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "createNewConversation(with:firstMessage:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -915,8 +915,8 @@
             filePath = "LoginApplication/Helpers/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "createNewConversation(with:firstMessage:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -931,8 +931,8 @@
             filePath = "LoginApplication/View Controllers/ChatViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "inputBar(_:didPressSendButtonWith:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -947,8 +947,8 @@
             filePath = "LoginApplication/View Controllers/ChatViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "inputBar(_:didPressSendButtonWith:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -957,14 +957,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F8815534-4DBB-4B29-B611-814CA9A6DF5E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginApplication/View Controllers/ChatViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "inputBar(_:didPressSendButtonWith:)"
             landmarkType = "7">
          </BreakpointContent>

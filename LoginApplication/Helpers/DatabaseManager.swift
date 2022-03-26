@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseMLModelDownloader
 
 
 final class DatabaseManager {
@@ -204,8 +205,10 @@ extension DatabaseManager {
                 break
             }
             
+            var conversationID = "conversation_\(firstMessage.messageId)"
+            
             let newConversationData: [String: Any] = [
-                "id" : "conversation_\(firstMessage.messageId)",
+                "id" : conversationID,
                 "other_user_email": otherUserEmail,
                 "latest_message": [
                     "date": dateString,
@@ -220,12 +223,14 @@ extension DatabaseManager {
                 //you should append
                 conversations.append(newConversationData)
                 userNode["conversations"] = conversations
-                ref.setValue(userNode, withCompletionBlock: {error, _ in
+                ref.setValue(userNode, withCompletionBlock: { [weak self] error, _ in
                     guard error == nil else {
                         completion(false)
                         return
                     }
-                    completion(true)
+                    self?.finishCreatingConversation(conversationID: conversationID,
+                                                    firstMessage: firstMessage,
+                                                    completion: completion)
                 })
             }
             else {
@@ -234,12 +239,15 @@ extension DatabaseManager {
                 userNode["conversations"] = [
                     newConversationData
                 ]
-                ref.setValue(userNode, withCompletionBlock: {error, _ in
+                ref.setValue(userNode, withCompletionBlock: {[weak self] error, _ in
                     guard error == nil else {
                         completion(false)
                         return
                     }
-                    completion(true)
+                    self?.finishCreatingConversation(conversationID: conversationID,
+                                                    firstMessage: firstMessage,
+                                                    completion: completion)
+                    
                 })
             }
             
@@ -247,6 +255,80 @@ extension DatabaseManager {
         
         
     }
+    
+    private func finishCreatingConversation(conversationID: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
+//        conversation_id {
+//               {
+//                   "id": string,
+//                   "type": text,
+//                   "content": String,
+//                   "date": date(),
+//                   "sender_email": String,
+//                   "isRead": true/false
+//               }
+//            }
+        let messageDate = firstMessage.sentDate
+        let dateString = CalendarHelper().timeString(date: messageDate)
+        
+        var message = ""
+        
+        switch firstMessage.kind {
+            
+        case .text(let messageText):
+            message = messageText
+        case .custom(_):
+            break
+        case .attributedText(_):
+            break
+        case .photo(_):
+            break
+        case .video(_):
+            break
+        case .location(_):
+            break
+        case .emoji(_):
+            break
+        case .audio(_):
+            break
+        case .contact(_):
+            break
+        case .linkPreview(_):
+            break
+        }
+        
+        guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else{
+            completion(false)
+            return
+        }
+        
+        let currentUserEmail = DatabaseManager.safeEmail(email: myEmail)
+        
+        let collectionMessage: [String: Any] = [
+            "id": firstMessage.messageId,
+            "type": firstMessage.kind.messageKindString,
+            "content": message,
+            "date": dateString,
+            "sender_email": currentUserEmail,
+            "isRead": false
+        ]
+        
+        let value: [String: Any] = [
+            "messages": [
+                collectionMessage
+            
+            ]
+        ]
+        
+        database.child("\(conversationID)").setValue(value, withCompletionBlock: { error, _ in
+            guard error == nil else{
+                completion(false)
+                return
+            }
+            completion(true)
+        })
+    }
+    
+    
     /// Fetches and returns all converstations for the user with passed in email
     public func getAllConversation(for email: String, completion: @escaping (Result<String, Error>) -> Void){
         

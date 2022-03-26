@@ -26,6 +26,35 @@ struct Message: MessageType
     public var kind: MessageKind
 }
 
+
+extension MessageKind {
+    var messageKindString: String{
+        switch self{
+            
+        case .text(_):
+            return "text"
+        case .attributedText(_):
+            return "attributed_text"
+        case .photo(_):
+            return "photo"
+        case .video(_):
+            return "video"
+        case .location(_):
+            return "locatio "
+        case .emoji(_):
+            return "emoji"
+        case .audio(_):
+            return "audio"
+        case .contact(_):
+            return "contact"
+        case .linkPreview(_):
+            return "link_preview"
+        case .custom(_):
+            return "custom"
+        }
+    }
+}
+
 //creates protocol for messagelist
 
 //messageViewController implements all user interface for messagelist
@@ -108,7 +137,9 @@ extension ChatViewController: InputBarAccessoryViewDelegate{
         guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") else {
             return nil
         }
-        let newID = "\(otherUserEmail)_\(currentUserEmail)_\(dateString)"
+        let safeCurrentEmail = DatabaseManager.safeEmail(email: currentUserEmail as! String)
+        
+        let newID = "\(otherUserEmail)_\(safeCurrentEmail)_\(dateString)"
         
         return newID
     }
