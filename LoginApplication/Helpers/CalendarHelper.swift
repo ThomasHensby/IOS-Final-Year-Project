@@ -12,6 +12,14 @@ class CalendarHelper
 {
     let calendar = Calendar.current
     
+    public static let dateFormatter : DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .long
+        formatter.locale = .current
+        return formatter
+    }()
+    
     func plusMonth(date: Date) -> Date
     {
         return calendar.date(byAdding: .month, value: 1, to: date)!

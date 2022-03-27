@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9A141FBD278360B8005D0362 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A141FBC278360B8005D0362 /* SignUpViewController.swift */; };
 		9A141FBF278360CE005D0362 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A141FBE278360CE005D0362 /* HomeViewController.swift */; };
+		9A2DCACF27F096D200B6A521 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DCACE27F096D100B6A521 /* ConversationTableViewCell.swift */; };
+		9A2DCAD227F0A01200B6A521 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9A2DCAD127F0A01200B6A521 /* SDWebImage */; };
 		9A5D4605278C7B210018A096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D4604278C7B210018A096 /* LoginViewController.swift */; };
 		9A5D4607278C86900018A096 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D4606278C86900018A096 /* GoogleService-Info.plist */; };
 		9A5D461C278CA3100018A096 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9A5D461B278CA3100018A096 /* FirebaseAnalytics */; };
@@ -62,6 +64,7 @@
 /* Begin PBXFileReference section */
 		9A141FBC278360B8005D0362 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9A141FBE278360CE005D0362 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9A2DCACE27F096D100B6A521 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		9A5D4604278C7B210018A096 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9A5D4606278C86900018A096 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9A5D4651278DFCB20018A096 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 				9A5D464C278CA3100018A096 /* FirebaseStorage in Frameworks */,
 				9A5D4622278CA3100018A096 /* FirebaseAppCheck in Frameworks */,
 				9A5D4650278CA3100018A096 /* FirebaseStorageSwift-Beta in Frameworks */,
+				9A2DCAD227F0A01200B6A521 /* SDWebImage in Frameworks */,
 				9A5D4626278CA3100018A096 /* FirebaseAuth in Frameworks */,
 				9A5D461E278CA3100018A096 /* FirebaseAnalyticsSwift-Beta in Frameworks */,
 				9A5D4644278CA3100018A096 /* FirebaseMLModelDownloader in Frameworks */,
@@ -133,8 +137,8 @@
 				9A141FBE278360CE005D0362 /* HomeViewController.swift */,
 				9AACDDE6277B871200110099 /* ViewController.swift */,
 				9AC60FCD27DED59B000C5555 /* NewEventViewController.swift */,
-				9AC60FF827E1124C000C5555 /* MessagerViewController.swift */,
 				9AC60FFA27E11B4F000C5555 /* SettingsViewController.swift */,
+				9AC60FF827E1124C000C5555 /* MessagerViewController.swift */,
 				9AC60FFC27E11DFE000C5555 /* ChatViewController.swift */,
 				9AC6100227E56490000C5555 /* NewConversationViewController.swift */,
 			);
@@ -151,6 +155,7 @@
 				9AC60FCF27DED756000C5555 /* Event.swift */,
 				9AC6100027E3C9DC000C5555 /* DatabaseManager.swift */,
 				9AC6100627E7ADE5000C5555 /* StorageManager.swift */,
+				9A2DCACE27F096D100B6A521 /* ConversationTableViewCell.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				9A5D464D278CA3100018A096 /* FirebaseStorageCombine-Community */,
 				9A5D464F278CA3100018A096 /* FirebaseStorageSwift-Beta */,
 				9AC60FF627E110B8000C5555 /* MessageKit */,
+				9A2DCAD127F0A01200B6A521 /* SDWebImage */,
 			);
 			productName = LoginApplication;
 			productReference = 9AACDDDF277B871200110099 /* LoginApplication.app */;
@@ -264,6 +270,7 @@
 			packageReferences = (
 				9A5D461A278CA3100018A096 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				9AC60FF527E110B8000C5555 /* XCRemoteSwiftPackageReference "MessageKit" */,
+				9A2DCAD027F0A01200B6A521 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 9AACDDE0277B871200110099 /* Products */;
 			projectDirPath = "";
@@ -296,6 +303,7 @@
 				9AC6100127E3C9DD000C5555 /* DatabaseManager.swift in Sources */,
 				9AC60FF927E1124C000C5555 /* MessagerViewController.swift in Sources */,
 				9A5D4605278C7B210018A096 /* LoginViewController.swift in Sources */,
+				9A2DCACF27F096D200B6A521 /* ConversationTableViewCell.swift in Sources */,
 				9AC6100727E7ADE5000C5555 /* StorageManager.swift in Sources */,
 				9AACDDE7277B871200110099 /* ViewController.swift in Sources */,
 				9A863F4C278C628A00E098E6 /* Utilities.swift in Sources */,
@@ -534,6 +542,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9A2DCAD027F0A01200B6A521 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		9A5D461A278CA3100018A096 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -553,6 +569,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9A2DCAD127F0A01200B6A521 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A2DCAD027F0A01200B6A521 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		9A5D461B278CA3100018A096 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9A5D461A278CA3100018A096 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

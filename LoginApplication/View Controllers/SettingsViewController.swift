@@ -35,6 +35,9 @@ class SettingsViewController: UIViewController {
         StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
             switch result {
             case .success(let url):
+                DispatchQueue.main.async {
+                    self?.profilePicture.reloadInputViews()
+                }
                 self?.downloadImage(imageView: (self?.profilePicture)!, url: url)
             case .failure(let error):
                 print("Failed to get download url: \(error)")
