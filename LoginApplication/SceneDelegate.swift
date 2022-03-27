@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        if let loggedUsername = UserDefaults.standard.string(forKey: "username"){
+        if UserDefaults.standard.string(forKey: "username") != nil{
             let mainNav = storyboard.instantiateViewController(withIdentifier: "mainNav")
             window?.rootViewController = mainNav
         }else{

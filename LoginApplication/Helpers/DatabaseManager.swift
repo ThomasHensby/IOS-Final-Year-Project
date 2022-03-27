@@ -33,9 +33,10 @@ final class DatabaseManager {
 
 //Generic lookup feature for database when path passed through
 extension DatabaseManager{
+    
     public func getDataFor(path: String, completion: @escaping (Result<Any, Error>) -> Void)
     {
-        self.database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
+        database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value else{
                 completion(.failure(DatabaseError.failedToFetch))
                 return
@@ -177,9 +178,9 @@ extension DatabaseManager {
      */
     
     ///Creates a new converation with target user email and first message sent
-    public func createNewConversation(with otherUserEmail: String,name: String, firstMessage: Message, completion: @escaping (Bool) -> Void){
+    public func createNewConversation(with otherUserEmail: String, name: String, firstMessage: Message, completion: @escaping (Bool) -> Void){
         guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String,
-        let currentName = UserDefaults.standard.value(forKey: "name") as? String else{
+        let currentName = UserDefaults.standard.value(forKey: "username") as? String else{
             return
         }
         let safeEmail = DatabaseManager.safeEmail(email: currentEmail)

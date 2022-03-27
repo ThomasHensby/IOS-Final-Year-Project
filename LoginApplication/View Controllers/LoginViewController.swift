@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         //Sign in the user and weak self stops retention cycle
-        Auth.auth().signIn(withEmail: email, password: password, completion:  { [weak self] result, error in
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion:  { [weak self] result, error in
             guard let strongSelf = self else{
                 return
             }
@@ -64,8 +64,8 @@ class LoginViewController: UIViewController {
             
             //saving email
             UserDefaults.standard.set(email, forKey: "email")
-            
             let safeEmail = DatabaseManager.safeEmail(email: email)
+            
             DatabaseManager.shared.getDataFor(path: safeEmail, completion: { result in
                 switch result {
                 case .success(let data):
@@ -81,7 +81,7 @@ class LoginViewController: UIViewController {
             })
             
             print("logged in user: \(user)")
-            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            //strongSelf.navigationController?.dismiss(animated: true, completion: nil)
             strongSelf.transitionToHome()
             
         })
