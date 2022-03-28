@@ -9,18 +9,19 @@ import Foundation
 import FirebaseDatabase
 import FirebaseMLModelDownloader
 
-
+/// Manager object to read and write data to real time firbase database
 final class DatabaseManager {
     
+    /// Shared intance of class
     static let shared = DatabaseManager()
     
+    ///Conection to the Firebase NOSQL server - Due to it being a europe server have to send in link
     private let database = Database.database(url: "https://game-helper-8d79a-default-rtdb.europe-west1.firebasedatabase.app/").reference()
     
-    
-    ///Test to see if inputting data in realtime database
-    //public func test(){
-    //    database.child("foo").setValue(["something" : true])
-    //}
+}
+
+///Extension built for general function where database manager is needed
+extension DatabaseManager{
     
     //need safe emails as firebase does not accept @ and . chars
     static func safeEmail(email: String) -> String {
@@ -29,11 +30,7 @@ final class DatabaseManager {
         return safeEmail
     }
     
-}
-
-//Generic lookup feature for database when path passed through
-extension DatabaseManager{
-    
+    ///Generic lookup feature for database when path passed to it will return dictonary node
     public func getDataFor(path: String, completion: @escaping (Result<Any, Error>) -> Void)
     {
         database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
@@ -49,7 +46,7 @@ extension DatabaseManager{
 //ACCOUNT MANAGEMENT
 extension DatabaseManager{
     
-    
+    /// Checks if user exists for given email address
     public func userEmailExists(with email: String,
                                 completion: @escaping ((Bool) -> Void))
     {
@@ -121,6 +118,8 @@ extension DatabaseManager{
             
         })
     }
+    
+    ///Gets all usernames from database
     public func getAllUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void){
         database.child("users").observeSingleEvent(of: .value, with: { snapshot in
             guard let value = snapshot.value as? [[String:String]] else {
@@ -584,7 +583,6 @@ extension DatabaseManager {
     }
     
 }
-
 
 ///Structure of a user in the chat
 struct ChatAppUser {

@@ -12,7 +12,7 @@ import FirebaseAuth
 
 var selectedDate = Date()
 
-class HomeViewController: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController {
     
    
     @IBOutlet weak var tableView: UITableView!
@@ -37,10 +37,6 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         
     
     }
-    
-   
-    
-    
     
     //setting selected dates
     func setCellView(){
@@ -68,6 +64,26 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         tableView.reloadData()
     }
     
+    //When Previous week button clicked -7 days from current days selection and recall function
+    @IBAction func previousWeek(_ sender: Any) {
+        selectedDate = CalendarHelper().addDays(date: selectedDate, days: -7)
+        setWeekView()
+    }
+    //When next week button clicked +7 days from current days selection and recall function
+    @IBAction func nextWeek(_ sender: Any) {
+        selectedDate = CalendarHelper().addDays(date: selectedDate, days: 7)
+        setWeekView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+            super.viewDidAppear(animated)
+            tableView.reloadData()
+    }
+
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     //Counting number of items
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         totalSquares.count
@@ -95,29 +111,17 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         tableView.reloadData()
     }
     
-   
-    
-    //When Previous week button clicked -7 days from current days selection and recall function
-    @IBAction func previousWeek(_ sender: Any) {
-        selectedDate = CalendarHelper().addDays(date: selectedDate, days: -7)
-        setWeekView()
-    }
-    //When next week button clicked +7 days from current days selection and recall function
-    @IBAction func nextWeek(_ sender: Any) {
-        selectedDate = CalendarHelper().addDays(date: selectedDate, days: 7)
-        setWeekView()
-    }
-    
-    
-    
-    
-    
-    
+}
+
+
+///Extension for the table section of the Home page where events are shown
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
             //getting number of events
             Event().eventsForDate(date: selectedDate).count
+            //Add db call
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -129,12 +133,4 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
             return cell
     }
         
-    override func viewDidAppear(_ animated: Bool)
-    {
-            super.viewDidAppear(animated)
-            tableView.reloadData()
-    }
-
-    
-
 }

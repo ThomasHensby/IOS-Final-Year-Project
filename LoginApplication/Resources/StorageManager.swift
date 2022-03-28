@@ -9,7 +9,7 @@ import Foundation
 import FirebaseStorage
 import FirebaseMLModelDownloader
 
-
+///To get, getch and upload files to firebase storage
 final class StorageManager {
     
     static let shared = StorageManager()
@@ -17,6 +17,7 @@ final class StorageManager {
     private let storage = Storage.storage().reference()
     
     public typealias uploadPictureCompletion = (Result<String, Error>) -> Void
+    
     ///Uploads photo to firebase storage and returns completion with url string to download
     public func uploadProfilePicture(with data: Data, fileName: String, completion: @escaping uploadPictureCompletion) {
         storage.child("images/\(fileName)").putData(data, metadata: nil, completion: {metadata, error in

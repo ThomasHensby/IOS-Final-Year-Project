@@ -11,10 +11,10 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var signOutButton: UIButton!
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var changePhotoButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Utilities.styleFilledButton(signOutButton)

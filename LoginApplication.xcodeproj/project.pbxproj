@@ -20,6 +20,8 @@
 		9A2DCAE127F1093700B6A521 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 9A2DCAE027F1093700B6A521 /* FirebaseStorageCombine-Community */; };
 		9A2DCAE327F1093700B6A521 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 9A2DCAE227F1093700B6A521 /* FirebaseStorageSwift-Beta */; };
 		9A2DCAE527F111DA00B6A521 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A2DCAE427F111DA00B6A521 /* GoogleService-Info.plist */; };
+		9A2DCAEB27F234B500B6A521 /* ConversationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DCAEA27F234B400B6A521 /* ConversationsModels.swift */; };
+		9A2DCAED27F2353800B6A521 /* ChatModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DCAEC27F2353800B6A521 /* ChatModels.swift */; };
 		9A5D4605278C7B210018A096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D4604278C7B210018A096 /* LoginViewController.swift */; };
 		9A5D4652278DFCB20018A096 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D4651278DFCB20018A096 /* Constants.swift */; };
 		9A863F4C278C628A00E098E6 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A863F4B278C628900E098E6 /* Utilities.swift */; };
@@ -47,6 +49,8 @@
 		9A141FBE278360CE005D0362 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9A2DCACE27F096D100B6A521 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		9A2DCAE427F111DA00B6A521 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9A2DCAEA27F234B400B6A521 /* ConversationsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsModels.swift; sourceTree = "<group>"; };
+		9A2DCAEC27F2353800B6A521 /* ChatModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModels.swift; sourceTree = "<group>"; };
 		9A5D4604278C7B210018A096 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9A5D4651278DFCB20018A096 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9A863F4B278C628900E098E6 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -94,32 +98,93 @@
 		9A141FC0278360E1005D0362 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9A141FBC278360B8005D0362 /* SignUpViewController.swift */,
-				9A5D4604278C7B210018A096 /* LoginViewController.swift */,
-				9A141FBE278360CE005D0362 /* HomeViewController.swift */,
-				9AACDDE6277B871200110099 /* ViewController.swift */,
-				9AC60FCD27DED59B000C5555 /* NewEventViewController.swift */,
-				9AC60FFA27E11B4F000C5555 /* SettingsViewController.swift */,
-				9AC60FF827E1124C000C5555 /* MessagerViewController.swift */,
-				9AC60FFC27E11DFE000C5555 /* ChatViewController.swift */,
-				9AC6100227E56490000C5555 /* NewConversationViewController.swift */,
+				9A2DCAF127F2368700B6A521 /* Events */,
+				9A2DCAF027F2366000B6A521 /* Home layout */,
+				9A2DCAEF27F2363200B6A521 /* Conversations */,
+				9A2DCAEE27F2360000B6A521 /* Login */,
+				9A2DCAE627F2324F00B6A521 /* Views */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		9A863F4D278C629100E098E6 /* Helpers */ = {
+		9A2DCAE627F2324F00B6A521 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				9ADC6DCF27BAC92000CDC052 /* CalendarCell.swift */,
-				9ADC6DCD27BAC8A500CDC052 /* CalendarHelper.swift */,
 				9A863F4B278C628900E098E6 /* Utilities.swift */,
-				9A5D4651278DFCB20018A096 /* Constants.swift */,
-				9AC60FCF27DED756000C5555 /* Event.swift */,
+				9A2DCACE27F096D100B6A521 /* ConversationTableViewCell.swift */,
+				9AACDDE8277B871200110099 /* Main.storyboard */,
+				9AACDDEB277B871400110099 /* Assets.xcassets */,
+				9AACDDED277B871400110099 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9A2DCAE727F232E100B6A521 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				9AC6100027E3C9DC000C5555 /* DatabaseManager.swift */,
 				9AC6100627E7ADE5000C5555 /* StorageManager.swift */,
-				9A2DCACE27F096D100B6A521 /* ConversationTableViewCell.swift */,
+				9ADC6DCD27BAC8A500CDC052 /* CalendarHelper.swift */,
+				9AACDDE4277B871200110099 /* SceneDelegate.swift */,
+				9AACDDE2277B871200110099 /* AppDelegate.swift */,
 			);
-			path = Helpers;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9A2DCAE827F233FE00B6A521 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9AC60FCF27DED756000C5555 /* Event.swift */,
+				9A5D4651278DFCB20018A096 /* Constants.swift */,
+				9A2DCAEA27F234B400B6A521 /* ConversationsModels.swift */,
+				9A2DCAEC27F2353800B6A521 /* ChatModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9A2DCAE927F2343400B6A521 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9A2DCAEE27F2360000B6A521 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9A141FBC278360B8005D0362 /* SignUpViewController.swift */,
+				9A5D4604278C7B210018A096 /* LoginViewController.swift */,
+				9AACDDE6277B871200110099 /* ViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		9A2DCAEF27F2363200B6A521 /* Conversations */ = {
+			isa = PBXGroup;
+			children = (
+				9AC60FFC27E11DFE000C5555 /* ChatViewController.swift */,
+				9AC60FF827E1124C000C5555 /* MessagerViewController.swift */,
+				9AC6100227E56490000C5555 /* NewConversationViewController.swift */,
+			);
+			path = Conversations;
+			sourceTree = "<group>";
+		};
+		9A2DCAF027F2366000B6A521 /* Home layout */ = {
+			isa = PBXGroup;
+			children = (
+				9A141FBE278360CE005D0362 /* HomeViewController.swift */,
+				9AC60FFA27E11B4F000C5555 /* SettingsViewController.swift */,
+			);
+			path = "Home layout";
+			sourceTree = "<group>";
+		};
+		9A2DCAF127F2368700B6A521 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				9AC60FCD27DED59B000C5555 /* NewEventViewController.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		9AACDDD6277B871200110099 = {
@@ -141,14 +206,11 @@
 		9AACDDE1277B871200110099 /* LoginApplication */ = {
 			isa = PBXGroup;
 			children = (
-				9AACDDE2277B871200110099 /* AppDelegate.swift */,
-				9AACDDE4277B871200110099 /* SceneDelegate.swift */,
-				9A863F4D278C629100E098E6 /* Helpers */,
-				9A141FC0278360E1005D0362 /* View Controllers */,
-				9AACDDE8277B871200110099 /* Main.storyboard */,
-				9AACDDEB277B871400110099 /* Assets.xcassets */,
 				9A2DCAE427F111DA00B6A521 /* GoogleService-Info.plist */,
-				9AACDDED277B871400110099 /* LaunchScreen.storyboard */,
+				9A2DCAE827F233FE00B6A521 /* Models */,
+				9A2DCAE727F232E100B6A521 /* Resources */,
+				9A2DCAE927F2343400B6A521 /* ViewModels */,
+				9A141FC0278360E1005D0362 /* View Controllers */,
 				9AACDDF0277B871400110099 /* Info.plist */,
 			);
 			path = LoginApplication;
@@ -246,6 +308,7 @@
 				9AC6100127E3C9DD000C5555 /* DatabaseManager.swift in Sources */,
 				9AC60FF927E1124C000C5555 /* MessagerViewController.swift in Sources */,
 				9A5D4605278C7B210018A096 /* LoginViewController.swift in Sources */,
+				9A2DCAED27F2353800B6A521 /* ChatModels.swift in Sources */,
 				9A2DCACF27F096D200B6A521 /* ConversationTableViewCell.swift in Sources */,
 				9AC6100727E7ADE5000C5555 /* StorageManager.swift in Sources */,
 				9AACDDE7277B871200110099 /* ViewController.swift in Sources */,
@@ -261,6 +324,7 @@
 				9AC6100327E56491000C5555 /* NewConversationViewController.swift in Sources */,
 				9AC60FCE27DED59B000C5555 /* NewEventViewController.swift in Sources */,
 				9ADC6DD027BAC92000CDC052 /* CalendarCell.swift in Sources */,
+				9A2DCAEB27F234B500B6A521 /* ConversationsModels.swift in Sources */,
 				9AC60FD027DED756000C5555 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
