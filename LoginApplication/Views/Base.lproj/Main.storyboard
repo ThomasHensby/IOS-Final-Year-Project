@@ -597,11 +597,17 @@
                                         <rect key="frame" x="0.0" y="106.5" width="354" height="106"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Change Photo"/>
+                                        <connections>
+                                            <action selector="changeProfilePicture:" destination="SnP-Hm-N6X" eventType="touchUpInside" id="eK2-dN-Z32"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYC-Kf-aDG">
                                         <rect key="frame" x="0.0" y="213.5" width="354" height="105.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign Out" buttonSize="large"/>
+                                        <connections>
+                                            <action selector="signOutClicked:" destination="SnP-Hm-N6X" eventType="touchUpInside" id="KW5-wm-EGy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

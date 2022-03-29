@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 
 class SettingsViewController: UIViewController {
@@ -18,9 +19,13 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Utilities.styleFilledButton(signOutButton)
+        Utilities.styleHollowButton(changePhotoButton)
         getProfilePicture()
+        nameLabel.text = "Username: \(UserDefaults.standard.value(forKey: "username") as! String)"
         // Do any additional setup after loading the view.
     }
+    
+    
     
     ///Function to get the profile photo from firebase
     func getProfilePicture () {
@@ -61,5 +66,25 @@ class SettingsViewController: UIViewController {
     
 
    
-
+    @IBAction func changeProfilePicture(_ sender: Any){
+        
+        
+        
+    }
+    
+    @IBAction func signOutClicked(_ sender: Any) {
+        do{
+            try Auth.auth().signOut()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginNav = storyboard.instantiateViewController(identifier: "loginNav")
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNav)
+            
+        }
+        catch{
+            print("Failed to log out")
+        }
+            
+        
+        
+    }
 }

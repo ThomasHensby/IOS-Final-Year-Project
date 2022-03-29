@@ -11,6 +11,7 @@ class scheduledEventViewCell: UITableViewCell {
     
     static let identifier = "scheduledEventViewCell"
     
+    static let shared = scheduledEventViewCell()
     
     private let gameImageView: UIImageView = {
         let imageView = UIImageView()
@@ -32,6 +33,8 @@ class scheduledEventViewCell: UITableViewCell {
         label.numberOfLines = 0
         return label
     }()
+    
+
     
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
@@ -57,20 +60,23 @@ class scheduledEventViewCell: UITableViewCell {
                                         y: eventNameLabel.center.y + 10,
                                      width: contentView.frame.width - 20 - gameImageView.center.x + 60,
                                      height: (contentView.frame.height - 20)/2)
-     
     }
+    
     
     
     public func configure(with model: Event)
     {
         self.eventMessageLabel.text = model.date
         self.eventNameLabel.text = model.name
-        
+        let cleanedName = model.name.trimmingCharacters(in: .whitespaces).lowercased()
         var path = ""
-        if !model.name.isEmpty{
+        if !cleanedName.isEmpty{
             switch model.name{
             case "callofduty": path = "games/callofduty.jpg"
             case "valorant": path = "games/valorant.png"
+            case "csgo": path = "games/csgo.png"
+            case "siege": path = "games/siege.jpg"
+            case "apexlegends": path = "games/apexlegends.jpg"
             default: print("Sorry no picture for that")
             }
             

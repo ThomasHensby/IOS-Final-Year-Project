@@ -36,7 +36,6 @@
 		9AACDDEC277B871400110099 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AACDDEB277B871400110099 /* Assets.xcassets */; };
 		9AACDDEF277B871400110099 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AACDDED277B871400110099 /* LaunchScreen.storyboard */; };
 		9AC60FCE27DED59B000C5555 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FCD27DED59B000C5555 /* NewEventViewController.swift */; };
-		9AC60FD027DED756000C5555 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FCF27DED756000C5555 /* Event.swift */; };
 		9AC60FF727E110B8000C5555 /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC60FF627E110B8000C5555 /* MessageKit */; };
 		9AC60FF927E1124C000C5555 /* MessagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FF827E1124C000C5555 /* MessagerViewController.swift */; };
 		9AC60FFB27E11B4F000C5555 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60FFA27E11B4F000C5555 /* SettingsViewController.swift */; };
@@ -71,7 +70,6 @@
 		9AACDDEE277B871400110099 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9AACDDF0277B871400110099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AC60FCD27DED59B000C5555 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
-		9AC60FCF27DED756000C5555 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		9AC60FF827E1124C000C5555 /* MessagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagerViewController.swift; sourceTree = "<group>"; };
 		9AC60FFA27E11B4F000C5555 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9AC60FFC27E11DFE000C5555 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 		9A2DCAE827F233FE00B6A521 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9AC60FCF27DED756000C5555 /* Event.swift */,
 				9A5D4651278DFCB20018A096 /* Constants.swift */,
 				9A2DCAEA27F234B400B6A521 /* ConversationsModels.swift */,
 				9A2DCAEC27F2353800B6A521 /* ChatModels.swift */,
@@ -341,7 +338,6 @@
 				9ADC6DD027BAC92000CDC052 /* CalendarCell.swift in Sources */,
 				9A2DCAEB27F234B500B6A521 /* ConversationsModels.swift in Sources */,
 				9A2DCAF727F32C4100B6A521 /* EventModel.swift in Sources */,
-				9AC60FD027DED756000C5555 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

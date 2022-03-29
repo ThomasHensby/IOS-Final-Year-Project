@@ -38,7 +38,6 @@ class HomeViewController: UIViewController {
     }
     
     
-    
     func eventsForDate(date:Date) -> [Event]
     {
         var daysEvent = [Event]()
@@ -52,6 +51,8 @@ class HomeViewController: UIViewController {
         return daysEvent
     }
     func listenForEvent(){
+        
+        
         DatabaseManager.shared.getAllEvents(completion: { [weak self] result in
             switch result{
             case .success(let eventsList):
@@ -69,7 +70,8 @@ class HomeViewController: UIViewController {
             }
         })
     }
-            
+    
+    
             
     
     //setting selected dates
@@ -80,6 +82,8 @@ class HomeViewController: UIViewController {
         let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.itemSize = CGSize(width: width, height: height)
     }
+    
+    
     
     func setWeekView(){
         totalSquares.removeAll()
@@ -174,5 +178,29 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        tableView.beginUpdates()
+        return .delete
+        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+        //begin delete
+            guard let eventId = eventsList[indexPath.row].eventId else { return }
+            self.eventsList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .right)
+            
+            DatabaseManager.shared.deleteEvent(eventId: eventId, completion: {[weak self] success in
+                if !success {
+                    print("delete failed")
+                }
+                
+            })
+            tableView.endUpdates()
+        }
+    }
+    
     
 }

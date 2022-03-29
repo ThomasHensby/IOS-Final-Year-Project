@@ -222,6 +222,37 @@ extension DatabaseManager{
         })
     }
     
+    public func deleteEvent(eventId: String, completion: @escaping ((Bool) -> Void)){
+        guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else{
+            return
+        }
+        let safeEmail = DatabaseManager.safeEmail(email: currentEmail)
+        let ref = database.child("\(safeEmail)/events")
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            if var events = snapshot.value as? [[String:Any]]{
+                var positionToRemove = 0
+                for event in events {
+                    if let id = event["eventId"] as? String,
+                       id == eventId{
+                        break
+                    }
+                    positionToRemove += 1
+                }
+                
+                events.remove(at: positionToRemove)
+                ref.setValue(events, withCompletionBlock: { error, _ in
+                    guard error == nil else{
+                        completion(false)
+                        return
+                    }
+                    completion(true)
+                })
+            }
+                
+        })
+            
+    }
+    
     
     
 }
