@@ -145,6 +145,90 @@ extension DatabaseManager{
      */
 }
 
+/// Sending events to database
+extension DatabaseManager{
+    
+    public func createNewEvent(eventId: String, dateOfEvent: String, nameOfEvent: String, completion: @escaping (Bool) -> Void)
+    {
+        guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else{
+            return
+        }
+        let safeEmail = DatabaseManager.safeEmail(email: currentEmail)
+        let ref = database.child("\(safeEmail)")
+        ref.observeSingleEvent(of: .value, with: { [weak self] snapshot in
+            guard var userNode = snapshot.value as? [String: Any] else {
+                completion(false)
+                print("user not found")
+                return
+            }
+            
+            let newEventData: [String: Any] = [
+                "eventId" : eventId,
+                "date": dateOfEvent,
+                "name": nameOfEvent
+            ]
+            
+            //Update current event
+            if var events = userNode["events"] as? [[String: Any]] {
+                //events arrary exists for current user
+                //you should append
+                events.append(newEventData)
+                userNode["events"] = events
+                ref.setValue(userNode, withCompletionBlock: { error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                })
+            }
+            else {
+                // events array doesn not exist
+                //create array
+                userNode["events"] = [
+                    newEventData
+                ]
+                ref.setValue(userNode, withCompletionBlock: { error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                })
+            }
+        })
+    }
+    
+    
+    public func getAllEvents( completion: @escaping (Result<[Event], Error>) -> Void){
+        guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else{
+            return
+        }
+        let safeEmail = DatabaseManager.safeEmail(email: currentEmail)
+        
+        database.child("\(safeEmail)/events").observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? [[String: Any]] else {
+                completion(.failure(DatabaseError.failedToFetch))
+                return
+            }
+            let events: [Event] = value.compactMap({ dictionary in
+                guard let eventId = dictionary["eventId"] as? String,
+                      let dateOfEvent = dictionary["date"] as? String,
+                      let nameOfEvent = dictionary["name"] as? String else{
+                          return nil
+                      }
+                return Event(eventId: eventId, name: nameOfEvent, date: dateOfEvent)
+                      
+            })
+            completion(.success(events))
+        })
+    }
+    
+    
+    
+}
+
+                               
+
+
 ///Sending messages / conversations
 extension DatabaseManager {
     

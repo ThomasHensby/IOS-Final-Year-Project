@@ -269,7 +269,7 @@
                         <segue destination="Ttl-pm-t77" kind="relationship" relationship="viewControllers" id="GAR-E0-NBw"/>
                         <segue destination="cUE-S5-u91" kind="relationship" relationship="viewControllers" id="WxC-Lz-o42"/>
                         <segue destination="0rD-DT-vTt" kind="relationship" relationship="viewControllers" id="Lhj-FO-r1J"/>
-                        <segue destination="HfI-AW-oDi" kind="relationship" relationship="viewControllers" id="aba-4n-p99"/>
+                        <segue destination="KJa-KY-nWE" kind="relationship" relationship="viewControllers" id="aba-4n-p99"/>
                         <segue destination="SnP-Hm-N6X" kind="relationship" relationship="viewControllers" id="78h-cX-L8i"/>
                     </connections>
                 </tabBarController>
@@ -314,31 +314,32 @@
                                         <rect key="frame" x="0.0" y="124.5" width="414" height="96"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y8N-SH-zpO">
-                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="itemSize" width="55" height="67"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="calCell" id="8TM-Nr-vcZ" customClass="CalendarCell" customModule="LoginApplication" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="67"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gz3-HE-Z1p">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="67"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO7-ra-FVA">
-                                                            <rect key="frame" x="58.5" y="19" width="11" height="26.5"/>
+                                                            <rect key="frame" x="22" y="7" width="11" height="26.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="iO7-ra-FVA" firstAttribute="centerY" secondItem="gz3-HE-Z1p" secondAttribute="centerY" multiplier="0.5" id="2WH-QQ-iEU"/>
+                                                        <constraint firstItem="iO7-ra-FVA" firstAttribute="centerY" secondItem="gz3-HE-Z1p" secondAttribute="centerY" multiplier="0.6" id="2WH-QQ-iEU"/>
                                                         <constraint firstItem="iO7-ra-FVA" firstAttribute="centerX" secondItem="gz3-HE-Z1p" secondAttribute="centerX" id="gRU-Wi-yw9"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
+                                                <size key="customSize" width="55" height="67"/>
                                                 <connections>
                                                     <outlet property="dayOfMonth" destination="iO7-ra-FVA" id="evH-9d-W1H"/>
                                                 </connections>
@@ -544,22 +545,36 @@
             </objects>
             <point key="canvasLocation" x="4539" y="1301"/>
         </scene>
-        <!--Add Friends-->
+        <!--Event Invites-->
         <scene sceneID="UJf-d9-1Lk">
             <objects>
-                <viewController id="HfI-AW-oDi" sceneMemberID="viewController">
+                <viewController id="HfI-AW-oDi" customClass="InvitedEventViewController" customModule="LoginApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9VO-oJ-89C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uaf-Yo-zvh">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="sL8-f4-m9M"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uaf-Yo-zvh" firstAttribute="top" secondItem="sL8-f4-m9M" secondAttribute="top" id="4K7-Pe-bIG"/>
+                            <constraint firstItem="uaf-Yo-zvh" firstAttribute="leading" secondItem="sL8-f4-m9M" secondAttribute="leading" id="a4t-HM-SJT"/>
+                            <constraint firstItem="uaf-Yo-zvh" firstAttribute="trailing" secondItem="sL8-f4-m9M" secondAttribute="trailing" id="dHP-vL-kwO"/>
+                            <constraint firstItem="uaf-Yo-zvh" firstAttribute="bottom" secondItem="sL8-f4-m9M" secondAttribute="bottom" id="qrQ-4h-3VC"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Add Friends" image="person.2.fill" catalog="system" id="VFi-b9-wB1"/>
-                    <navigationItem key="navigationItem" title="Add Friends" id="tkZ-GB-fbu"/>
+                    <navigationItem key="navigationItem" title="Event Invites" id="tkZ-GB-fbu"/>
+                    <connections>
+                        <outlet property="invitesTableView" destination="uaf-Yo-zvh" id="Sfr-Pq-xjw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Dk-uN-SdD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5280" y="915"/>
+            <point key="canvasLocation" x="6631.884057971015" y="993.75"/>
         </scene>
         <!--Settings-->
         <scene sceneID="AkD-Jp-GV5">
@@ -623,7 +638,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbR-rn-pgh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6024.6376811594209" y="914.73214285714278"/>
+            <point key="canvasLocation" x="7547.826086956522" y="914.73214285714278"/>
         </scene>
         <!--Message's-->
         <scene sceneID="FEl-Fa-GKd">
@@ -643,6 +658,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="19V-MW-hqH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3809" y="1300"/>
+        </scene>
+        <!--Event Invites-->
+        <scene sceneID="Xog-mk-pEJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KJa-KY-nWE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Event Invites" image="person.2.fill" catalog="system" id="VFi-b9-wB1"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dbt-bO-AR2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HfI-AW-oDi" kind="relationship" relationship="rootViewController" id="5W9-ST-din"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HcX-fa-COv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5721.739130434783" y="993.75"/>
         </scene>
     </scenes>
     <resources>

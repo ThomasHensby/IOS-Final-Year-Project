@@ -10,8 +10,6 @@ import MessageKit
 import FirebaseAuth
 
 
-var selectedDate = Date()
-
 class HomeViewController: UIViewController {
     
    
@@ -27,21 +25,57 @@ class HomeViewController: UIViewController {
     var menuOut = false
     var selectedDate = Date()
     var totalSquares = [Date]()
+    var eventsList = [Event]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.storyboard?.instantiateViewController(withIdentifier: "mainNav")
         setCellView()
         setWeekView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-    
+        tableView.register(scheduledEventViewCell.self, forCellReuseIdentifier: scheduledEventViewCell.identifier)
+        listenForEvent()
     }
+    
+    
+    
+    func eventsForDate(date:Date) -> [Event]
+    {
+        var daysEvent = [Event]()
+        for event in eventsList {
+            let eventDate = CalendarHelper.dateFormatter.date(from: event.date)
+            if(Calendar.current.isDate(eventDate!, inSameDayAs: date))
+            {
+                daysEvent.append(event)
+            }
+        }
+        return daysEvent
+    }
+    func listenForEvent(){
+        DatabaseManager.shared.getAllEvents(completion: { [weak self] result in
+            switch result{
+            case .success(let eventsList):
+                print("successFully got event models")
+                guard !eventsList.isEmpty else{
+                    return
+                }
+                self?.eventsList = eventsList
+                
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("Failed to get events \(error)")
+            }
+        })
+    }
+            
+            
     
     //setting selected dates
     func setCellView(){
-        let width = (collectionView.frame.size.width - 2)/8
-        let height = (collectionView.frame.size.height - 2) / 8
+        let width = (collectionView.frame.size.width)/8
+        let height = (collectionView.frame.size.height) / 8
         
         let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.itemSize = CGSize(width: width, height: height)
@@ -120,17 +154,25 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
             //getting number of events
-            Event().eventsForDate(date: selectedDate).count
+            eventsForDate(date: selectedDate).count
             //Add db call
+        
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-            //creating a reusable cell that can add multiple events from eventsForDate
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: IndexPath.init())
-            let event = Event().eventsForDate(date: selectedDate)[indexPath.row]
-            cell.textLabel?.text = event.name + " " + CalendarHelper().timeString(date: event.date)
-            return cell
+        //creating a reusable cell that can add multiple events from eventsForDate
+        let model = eventsForDate(date: selectedDate)[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: scheduledEventViewCell.identifier, for: indexPath) as! scheduledEventViewCell
+        cell.configure(with: model)
+        //let date = CalendarHelper.dateFormatter.date(from: event.date)
+        //cell.textLabel?.text = event.name + " " + event.date
+    
+        return cell
     }
-        
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
 }
