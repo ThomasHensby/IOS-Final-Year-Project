@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -473,46 +474,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ycA-IT-G4G">
-                                <rect key="frame" x="116" y="210" width="177" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ycA-IT-G4G">
+                                <rect key="frame" x="50" y="164.5" width="314" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="b4L-YH-sf2">
-                                <rect key="frame" x="-77" y="311.5" width="568" height="216"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Event name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bY-Br-QFq">
+                                <rect key="frame" x="162" y="94" width="90" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Invite Friend with search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpQ-g1-Trl">
+                                <rect key="frame" x="114.5" y="248.5" width="185" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="b4L-YH-sf2">
+                                <rect key="frame" x="47" y="420.5" width="320" height="216"/>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8se-IH-p6Q">
-                                <rect key="frame" x="159.5" y="607.5" width="95.5" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8se-IH-p6Q">
+                                <rect key="frame" x="159.5" y="684" width="95.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Save Event"/>
                                 <connections>
                                     <action selector="saveEvent:" destination="cUE-S5-u91" eventType="touchUpInside" id="kvF-Yz-FVx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpc-FI-GkP">
+                                <rect key="frame" x="146" y="300" width="122" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title=" Search" image="magnifyingglass" catalog="system">
+                                    <color key="titleColor" name="label"/>
+                                    <color key="titleShadowColor" name="label"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchForFriends:" destination="cUE-S5-u91" eventType="touchUpInside" id="IWw-cJ-vl0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khP-PI-PTc">
+                                <rect key="frame" x="182.5" y="349.5" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PSz-Mz-x5U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="b4L-YH-sf2" firstAttribute="top" secondItem="ycA-IT-G4G" secondAttribute="bottom" constant="80" id="0dQ-7V-DKE"/>
+                            <constraint firstItem="khP-PI-PTc" firstAttribute="top" secondItem="Fpc-FI-GkP" secondAttribute="bottom" constant="30" id="3f0-JF-53Q"/>
                             <constraint firstItem="PSz-Mz-x5U" firstAttribute="trailing" secondItem="ycA-IT-G4G" secondAttribute="trailing" constant="50" id="3xT-45-usG"/>
-                            <constraint firstItem="b4L-YH-sf2" firstAttribute="width" secondItem="ycA-IT-G4G" secondAttribute="width" multiplier="1.80791" id="47q-h4-uy6"/>
-                            <constraint firstItem="b4L-YH-sf2" firstAttribute="centerX" secondItem="PSz-Mz-x5U" secondAttribute="centerX" id="50M-2L-bX1"/>
+                            <constraint firstItem="ZpQ-g1-Trl" firstAttribute="centerX" secondItem="29X-Wi-DM9" secondAttribute="centerX" id="7eG-wG-ekR"/>
+                            <constraint firstItem="8bY-Br-QFq" firstAttribute="centerX" secondItem="29X-Wi-DM9" secondAttribute="centerX" id="A3f-4R-ez4"/>
                             <constraint firstItem="ycA-IT-G4G" firstAttribute="leading" secondItem="PSz-Mz-x5U" secondAttribute="leading" constant="50" id="Bgq-Sq-Zyf"/>
+                            <constraint firstItem="Fpc-FI-GkP" firstAttribute="top" secondItem="ZpQ-g1-Trl" secondAttribute="bottom" constant="20" id="CNx-Kc-yp4"/>
+                            <constraint firstItem="PSz-Mz-x5U" firstAttribute="bottom" secondItem="8se-IH-p6Q" secondAttribute="bottom" constant="98" id="FYt-Xx-2Ul"/>
+                            <constraint firstItem="Fpc-FI-GkP" firstAttribute="centerX" secondItem="29X-Wi-DM9" secondAttribute="centerX" id="I4H-84-tPK"/>
+                            <constraint firstItem="b4L-YH-sf2" firstAttribute="top" secondItem="khP-PI-PTc" secondAttribute="bottom" constant="50" id="Nyr-4V-qrR"/>
                             <constraint firstItem="8se-IH-p6Q" firstAttribute="centerX" secondItem="PSz-Mz-x5U" secondAttribute="centerX" id="Xgm-N3-3ub"/>
-                            <constraint firstItem="8se-IH-p6Q" firstAttribute="top" secondItem="b4L-YH-sf2" secondAttribute="bottom" constant="80" id="vAU-30-aPW"/>
-                            <constraint firstItem="ycA-IT-G4G" firstAttribute="centerY" secondItem="PSz-Mz-x5U" secondAttribute="centerY" multiplier="0.5" id="xAs-Yx-lpj"/>
+                            <constraint firstItem="8bY-Br-QFq" firstAttribute="top" secondItem="PSz-Mz-x5U" secondAttribute="top" constant="50" id="YDq-7v-1su"/>
+                            <constraint firstItem="ycA-IT-G4G" firstAttribute="top" secondItem="8bY-Br-QFq" secondAttribute="bottom" constant="50" id="Zqs-BF-9h7"/>
+                            <constraint firstItem="b4L-YH-sf2" firstAttribute="centerX" secondItem="29X-Wi-DM9" secondAttribute="centerX" id="cR8-4R-YRI"/>
+                            <constraint firstItem="8se-IH-p6Q" firstAttribute="top" secondItem="b4L-YH-sf2" secondAttribute="bottom" constant="50" id="fAs-TB-GSi"/>
+                            <constraint firstItem="8se-IH-p6Q" firstAttribute="centerX" secondItem="29X-Wi-DM9" secondAttribute="centerX" id="gPI-m7-hFE"/>
+                            <constraint firstItem="khP-PI-PTc" firstAttribute="centerX" secondItem="29X-Wi-DM9" secondAttribute="centerX" id="qov-R8-dzX"/>
+                            <constraint firstItem="ZpQ-g1-Trl" firstAttribute="top" secondItem="ycA-IT-G4G" secondAttribute="bottom" constant="50" id="xKt-bO-We4"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Event" image="gamecontroller" catalog="system" id="ony-kj-TYN"/>
                     <navigationItem key="navigationItem" title="Event Creation" id="nNW-hL-FOs"/>
                     <connections>
                         <outlet property="datePicker" destination="b4L-YH-sf2" id="YZE-dW-UOD"/>
+                        <outlet property="friendLabel" destination="khP-PI-PTc" id="dKS-UO-GQJ"/>
                         <outlet property="nameTF" destination="ycA-IT-G4G" id="iuJ-d3-iMi"/>
+                        <outlet property="searchForFriends" destination="Fpc-FI-GkP" id="l7N-Oa-zit"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKR-gW-kf6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6061" y="-594"/>
+            <point key="canvasLocation" x="6060.8695652173919" y="-594.64285714285711"/>
         </scene>
         <!--Message-->
         <scene sceneID="nRp-97-c1l">
@@ -692,9 +735,13 @@
         <image name="gamecontroller" catalog="system" width="128" height="80"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="icons8-menu" width="50" height="50"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="label">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

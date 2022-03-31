@@ -43,15 +43,16 @@ class HomeViewController: UIViewController {
         var daysEvent = [Event]()
         for event in eventsList {
             let eventDate = CalendarHelper.dateFormatter.date(from: event.date)
-            if(Calendar.current.isDate(eventDate!, inSameDayAs: date))
+            let eventInvite = event.invite
+            if(Calendar.current.isDate(eventDate!, inSameDayAs: date) && eventInvite == false)
             {
                 daysEvent.append(event)
             }
         }
         return daysEvent
     }
+    
     func listenForEvent(){
-        
         
         DatabaseManager.shared.getAllEvents(completion: { [weak self] result in
             switch result{
@@ -61,7 +62,6 @@ class HomeViewController: UIViewController {
                     return
                 }
                 self?.eventsList = eventsList
-                
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -192,7 +192,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             self.eventsList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .right)
             
-            DatabaseManager.shared.deleteEvent(eventId: eventId, completion: {[weak self] success in
+            DatabaseManager.shared.deleteEvent(eventId: eventId, completion: { success in
                 if !success {
                     print("delete failed")
                 }

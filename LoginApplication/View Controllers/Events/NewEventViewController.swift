@@ -10,13 +10,17 @@ import UIKit
 class NewEventViewController: UIViewController {
     
     
-
+    @IBOutlet weak var friendLabel: UILabel!
+    
     @IBOutlet weak var nameTF: UITextField!
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
 
+    @IBOutlet weak var searchForFriends: UIButton!
     
+    var otherUser = ""
+    var invitation = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +32,7 @@ class NewEventViewController: UIViewController {
     
     @IBAction func saveEvent(_ sender: Any) {
         //Adding a new event
-        let date = CalendarHelper.dateFormatter.string(from: datePicker.date)
+        let date = CalendarHelper.dateFormatter.string(from: Date())
         let eventId = createEventId()
         let guardedGame = nameTF.text?.replacingOccurrences(of: " ", with: "")
         guard !(guardedGame!.isEmpty),
@@ -37,7 +41,7 @@ class NewEventViewController: UIViewController {
         }
         
         
-        DatabaseManager.shared.createNewEvent(eventId: eventId, dateOfEvent: date, nameOfEvent: guardedGame!, completion: { [weak self] success in
+        DatabaseManager.shared.createNewEvent(eventId: eventId, dateOfEvent: date, otherUserEmail: otherUser, String: invitation,  nameOfEvent: guardedGame!, completion: { success in
             if success{
                 print("event sent")
             }
@@ -63,12 +67,31 @@ class NewEventViewController: UIViewController {
         }
         let safeCurrentEmail = DatabaseManager.safeEmail(email: currentUserEmail as! String)
         let name = nameTF.text!
-        let newID = "\(name)_\(safeCurrentEmail)_\(dateString)"
+        let newID = "\(name)_\(safeCurrentEmail)_\(otherUser)_\(dateString)"
         
         return newID
     }
 
     
  
-
+    @IBAction func searchForFriends(_ sender: Any) {
+        let vc = NewConversationViewController()
+        //weak self to stop memory retention cycle
+        vc.completion = { [weak self] result in
+            print("\(result)")
+            self?.sendInviteRequest(result: result)
+        }
+        let newConversationVC = UINavigationController(rootViewController: vc)
+        present(newConversationVC, animated: true)
+    }
+    
+    private func sendInviteRequest(result: [String: String]) {
+        guard let username = result["username"], let email = result["email"] else {
+            return
+        }
+        friendLabel.text = username
+        otherUser = email
+        invitation = true
+    }
+    
 }

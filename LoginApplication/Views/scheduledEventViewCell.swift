@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class scheduledEventViewCell: UITableViewCell {
     
@@ -66,7 +67,8 @@ class scheduledEventViewCell: UITableViewCell {
     
     public func configure(with model: Event)
     {
-        self.eventMessageLabel.text = model.date
+        let date = CalendarHelper.dateFormatter.date(from: model.date)
+        self.eventMessageLabel.text = CalendarHelper().timeString(date: date!)
         self.eventNameLabel.text = model.name
         let cleanedName = model.name.trimmingCharacters(in: .whitespaces).lowercased()
         var path = ""

@@ -9,50 +9,58 @@ import UIKit
 
 class InvitedEventViewController: UIViewController {
     
-    private var invitations = [Event]()
+   
+    private var invitedEvent = Event().self
+    public var invitationToEvent = [Event]()
+    var selectedDate = Date()
 
     @IBOutlet weak var invitesTableView: UITableView!
     override func viewDidLoad() {
-//        super.viewDidLoad()
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose,
-//                                                            target: self, action: #selector(didTapComposeButton))
-//        
-        invitesTableView.register(ConversationTableViewCell.self, forCellReuseIdentifier: ConversationTableViewCell.identifier)
+        super.viewDidLoad()
+     
+        invitesTableView.register(InvitedEventTableViewCell.self, forCellReuseIdentifier: InvitedEventTableViewCell.identifier)
         invitesTableView.delegate = self
         invitesTableView.dataSource = self
-        
+        listenForEvent()
     }
     
+    func listenForEvent(){
+        
+        DatabaseManager.shared.getAllEvents(completion: { [weak self] result in
+            switch result{
+            case .success(let invitations):
+                print("successFully got event models")
+                guard !invitations.isEmpty else{
+                    return
+                }
+                for event in invitations {
+                    if(event.invite == true)  {
+                        self?.invitationToEvent.append(event)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self?.invitesTableView.reloadData()
+                }
+            case .failure(let error):
+                print("Failed to get events \(error)")
+            }
+        })
+    }
    
-//    @objc private func didTapComposeButton() {
-//        let vc = NewConversationViewController()
-//        //weak self to stop memory retention cycle
-//        vc.completion = { [weak self] result in
-//            print("\(result)")
-//            self?.createNewInvite(result: result)
-//        }
-//        let newConversationVC = UINavigationController(rootViewController: vc)
-//        present(newConversationVC, animated: true)
-//    }
-//
-//    func createNewInvite(){
-//
-//    }
+
     
 
 }
 extension InvitedEventViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        return invitationToEvent.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let model = Event[indexPath.row]
+        let model = invitationToEvent[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: InvitedEventTableViewCell.identifier, for: indexPath) as! InvitedEventTableViewCell
-        //cell.configure(with: model)
-        //Arrow to indicate can be clicked into
-        //cell.accessoryType = .disclosureIndicator
+        cell.configure(with: model)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class InvitedEventTableViewCell: UITableViewCell {
 
@@ -60,5 +61,37 @@ class InvitedEventTableViewCell: UITableViewCell {
      
     }
     
+    
+    public func configure(with model: Event)
+    {
+        let date = CalendarHelper.dateFormatter.date(from: model.date)
+        self.dateMessageLabel.text = CalendarHelper().timeString(date: date!)
+        self.eventNameLabel.text = model.name
+        let cleanedName = model.name.trimmingCharacters(in: .whitespaces).lowercased()
+        var path = ""
+        if !cleanedName.isEmpty{
+            switch model.name{
+            case "callofduty": path = "games/callofduty.jpg"
+            case "valorant": path = "games/valorant.png"
+            case "csgo": path = "games/csgo.png"
+            case "siege": path = "games/siege.jpg"
+            case "apexlegends": path = "games/apexlegends.jpg"
+            default: print("Sorry no picture for that")
+            }
+            
+            StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
+                switch result{
+                case .success(let url):
+                    //working on main thread as UI
+                    DispatchQueue.main.async {
+                        //using the SDWeb image to handle downloading and working with cache
+                        self?.gameImageView.sd_setImage(with: url, completed: nil)
+                    }
+                case .failure(let error):
+                    print("Failed to get image url : \(error)")
+                }
+            })
+        }
+    }
 
 }

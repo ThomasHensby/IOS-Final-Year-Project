@@ -12,5 +12,6 @@ struct Event{
     public var eventId : String!
     public var name : String!
     public var date : String!
+    public var invite: Bool!
 }
 

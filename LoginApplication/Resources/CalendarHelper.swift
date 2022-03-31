@@ -20,6 +20,7 @@ class CalendarHelper
         return formatter
     }()
     
+    
     func plusMonth(date: Date) -> Date
     {
         return calendar.date(byAdding: .month, value: 1, to: date)!

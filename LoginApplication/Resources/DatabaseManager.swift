@@ -148,9 +148,12 @@ extension DatabaseManager{
 /// Sending events to database
 extension DatabaseManager{
     
-    public func createNewEvent(eventId: String, dateOfEvent: String, nameOfEvent: String, completion: @escaping (Bool) -> Void)
+    public func createNewEvent(eventId: String, dateOfEvent: String, otherUserEmail: String, String invite: Bool, nameOfEvent: String, completion: @escaping (Bool) -> Void)
     {
         guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else{
+            return
+        }
+        guard let currentName = UserDefaults.standard.value(forKey: "username") as? String else{
             return
         }
         let safeEmail = DatabaseManager.safeEmail(email: currentEmail)
@@ -165,8 +168,31 @@ extension DatabaseManager{
             let newEventData: [String: Any] = [
                 "eventId" : eventId,
                 "date": dateOfEvent,
-                "name": nameOfEvent
+                "name": nameOfEvent,
+                "otherUserEmail": otherUserEmail,
+                "invite": invite
             ]
+            
+            let recipientEventData: [String: Any] = [
+                "eventId" : eventId,
+                "date": dateOfEvent,
+                "name": nameOfEvent,
+                "otherUserEmail": safeEmail,
+                "invite": invite
+            ]
+            
+            //update the recipient events entry
+            self?.database.child("\(otherUserEmail)/events").observeSingleEvent(of: .value, with: { [weak self] snapshot in
+                if var events = snapshot.value as? [[String:Any]] {
+                    //append
+                    events.append(recipientEventData)
+                    self?.database.child("\(otherUserEmail)/events").setValue(events)
+                }
+                else{
+                    // create
+                    self?.database.child("\(otherUserEmail)/events").setValue([recipientEventData])
+                }
+            })
             
             //Update current event
             if var events = userNode["events"] as? [[String: Any]] {
@@ -212,10 +238,11 @@ extension DatabaseManager{
             let events: [Event] = value.compactMap({ dictionary in
                 guard let eventId = dictionary["eventId"] as? String,
                       let dateOfEvent = dictionary["date"] as? String,
-                      let nameOfEvent = dictionary["name"] as? String else{
+                      let nameOfEvent = dictionary["name"] as? String,
+                      let invite = dictionary["invite"] as? Bool else{
                           return nil
                       }
-                return Event(eventId: eventId, name: nameOfEvent, date: dateOfEvent)
+                return Event(eventId: eventId, name: nameOfEvent, date: dateOfEvent, invite: invite)
                       
             })
             completion(.success(events))
