@@ -34,13 +34,20 @@ class InvitedEventTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let acceptButton: UIButton = {
+        let button = UIButton()
+        let buttonImage = UIImage(systemName: "plus")
+        button.setImage(buttonImage, for: .normal)
+        return button
+    }()
+    
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(gameImageView)
         contentView.addSubview(eventNameLabel)
         contentView.addSubview(dateMessageLabel)
-        
+        contentView.addSubview(acceptButton)
     }
     
     required init?(coder: NSCoder) {
@@ -58,14 +65,18 @@ class InvitedEventTableViewCell: UITableViewCell {
                                         y: eventNameLabel.center.y + 10,
                                      width: contentView.frame.width - 20 - gameImageView.center.x + 60,
                                      height: (contentView.frame.height - 20)/2)
+        acceptButton.frame = CGRect(x: contentView.frame.width - 60 ,
+                                     y: 10,
+                                     width: 50,
+                                     height: 50)
      
     }
     
     
     public func configure(with model: Event)
     {
-        let date = CalendarHelper.dateFormatter.date(from: model.date)
-        self.dateMessageLabel.text = CalendarHelper().timeString(date: date!)
+
+        self.dateMessageLabel.text = model.date
         self.eventNameLabel.text = model.name
         let cleanedName = model.name.trimmingCharacters(in: .whitespaces).lowercased()
         var path = ""
