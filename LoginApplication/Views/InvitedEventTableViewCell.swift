@@ -11,7 +11,8 @@ import SDWebImage
 class InvitedEventTableViewCell: UITableViewCell {
 
     static let identifier = "InvitedEventTableViewCell"
-    
+    var eventId = ""
+    var otherUserEmail = ""
     
     private let gameImageView: UIImageView = {
         let imageView = UIImageView()
@@ -34,10 +35,18 @@ class InvitedEventTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let eventFromLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 19, weight: .regular)
+        return label
+    }()
+    
+    
     private let acceptButton: UIButton = {
         let button = UIButton()
         let buttonImage = UIImage(systemName: "plus")
         button.setImage(buttonImage, for: .normal)
+        button.addTarget(self, action: Selector(("pressed")), for: .touchUpInside)
         return button
     }()
     
@@ -48,6 +57,7 @@ class InvitedEventTableViewCell: UITableViewCell {
         contentView.addSubview(eventNameLabel)
         contentView.addSubview(dateMessageLabel)
         contentView.addSubview(acceptButton)
+        contentView.addSubview(eventFromLabel)
     }
     
     required init?(coder: NSCoder) {
@@ -69,15 +79,53 @@ class InvitedEventTableViewCell: UITableViewCell {
                                      y: 10,
                                      width: 50,
                                      height: 50)
+        eventFromLabel.frame = CGRect(x: gameImageView.center.x + 60 ,
+                                        y: dateMessageLabel.center.y + 10,
+                                     width: contentView.frame.width - 20 - gameImageView.center.x + 60,
+                                     height: (contentView.frame.height - 20)/2)
      
+    }
+    
+    @objc func pressed(){
+        DatabaseManager.shared.changeInvite(eventId: eventId, otherUserEmail: otherUserEmail, completion: { changed in
+            
+            //Checking to see if the invite type successfully changed
+            guard !changed else {
+                //didnt change already exists
+                print("Wasnt able to change to invite")
+                return
+            }
+            
+        })
     }
     
     
     public func configure(with model: Event)
     {
-
+        eventId = model.eventId
+        otherUserEmail = model.from
         self.dateMessageLabel.text = model.date
         self.eventNameLabel.text = model.name
+        if(!model.from.isEmpty){
+            DatabaseManager.shared.getDataFor(path: model.from, completion: { [weak self] result in
+                switch result {
+                case .success(let data):
+                    guard let userData = data as? [String: Any],
+                    let username = userData["username"] as? String else {
+                        return
+                    }
+                    if(username != UserDefaults.standard.value(forKey: "username") as! String){
+                        self?.eventFromLabel.text = "With: \(username)"
+                    }
+                    else{
+                        self?.eventFromLabel.text = "Solo event"
+                    }
+                case .failure(let error):
+                    print("Failed to read data with error \(error)")
+                }
+            })
+        }
+        self.eventFromLabel.text = "Solo event"
         let cleanedName = model.name.trimmingCharacters(in: .whitespaces).lowercased()
         var path = ""
         if !cleanedName.isEmpty{

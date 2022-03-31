@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.storyboard?.instantiateViewController(withIdentifier: "mainNav")
-        setCellView()
+        //setCellView()
         setWeekView()
         tableView.register(scheduledEventViewCell.self, forCellReuseIdentifier: scheduledEventViewCell.identifier)
         listenForEvent()
@@ -75,13 +75,13 @@ class HomeViewController: UIViewController {
             
     
     //setting selected dates
-    func setCellView(){
-        let width = (collectionView.frame.size.width)/8
-        let height = (collectionView.frame.size.height) / 8
-        
-        let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        flowLayout.itemSize = CGSize(width: width, height: height)
-    }
+//    func setCellView(){
+//        let width = (view.frame.width)/8
+//        let height = (collectionView.frame.size.height) / 8
+//
+//        let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//        flowLayout.itemSize = CGSize(width: width, height: height)
+//    }
     
     
     
@@ -129,7 +129,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calCell", for: indexPath) as! CalendarCell
-        
+        cell.frame.size.width = view.frame.width/8
         let date = totalSquares[indexPath.item]
         cell.dayOfMonth.text = String(CalendarHelper().dayOfMonth(date: date))
         
@@ -148,6 +148,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         collectionView.reloadData()
         tableView.reloadData()
     }
+
     
 }
 

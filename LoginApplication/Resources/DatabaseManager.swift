@@ -239,10 +239,11 @@ extension DatabaseManager{
                 guard let eventId = dictionary["eventId"] as? String,
                       let dateOfEvent = dictionary["date"] as? String,
                       let nameOfEvent = dictionary["name"] as? String,
-                      let invite = dictionary["invite"] as? Bool else{
+                      let invite = dictionary["invite"] as? Bool,
+                      let from = dictionary["otherUserEmail"]as? String else{
                           return nil
                       }
-                return Event(eventId: eventId, name: nameOfEvent, date: dateOfEvent, invite: invite)
+                return Event(eventId: eventId, name: nameOfEvent, date: dateOfEvent, invite: invite, from: from)
                       
             })
             completion(.success(events))
@@ -280,7 +281,41 @@ extension DatabaseManager{
             
     }
     
+    public func changeInvite(eventId: String, otherUserEmail: String, completion: @escaping ((Bool) -> Void)) {
+        guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else{
+            return
+        }
+        let safeEmail = DatabaseManager.safeEmail(email: currentEmail)
+        let ref = database.child("\(safeEmail)/events")
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            if let events = snapshot.value as? [[String:Any]]{
+                var positionToChange = 0
+                for event in events {
+                    if let id = event["eventId"] as? String,
+                       id == eventId{
+                        break
+                    }
+                    positionToChange += 1
+                }
+                self.database.child("\(safeEmail)/events/\(positionToChange)").updateChildValues(["invite": false])
+            }
+        })
+        let originalRef = self.database.child("\(otherUserEmail)/events")
+        originalRef.observeSingleEvent(of: .value, with: { snapshot in
+            if let events = snapshot.value as? [[String:Any]]{
+                var positionToChange = 0
+                for event in events {
+                    if let id = event["eventId"] as? String,
+                       id == eventId{
+                        break
+                    }
+                    positionToChange += 1
+                }
+                self.database.child("\(otherUserEmail)/events/\(positionToChange)").updateChildValues(["invite": false] )
+            }
+        })
     
+    }
     
 }
 

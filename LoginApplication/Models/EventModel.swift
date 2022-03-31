@@ -13,5 +13,6 @@ struct Event{
     public var name : String!
     public var date : String!
     public var invite: Bool!
+    public var from: String!
 }
 

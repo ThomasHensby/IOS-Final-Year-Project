@@ -311,25 +311,25 @@
                                             <action selector="previousWeek:" destination="Ttl-pm-t77" eventType="touchUpInside" id="gJ5-mg-6Qh"/>
                                         </connections>
                                     </button>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EMX-SI-UkI">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EMX-SI-UkI">
                                         <rect key="frame" x="0.0" y="124.5" width="414" height="96"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y8N-SH-zpO">
-                                            <size key="itemSize" width="55" height="67"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mCA-6g-dmd">
+                                            <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="calCell" id="8TM-Nr-vcZ" customClass="CalendarCell" customModule="LoginApplication" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="55" height="67"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gz3-HE-Z1p">
-                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="67"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO7-ra-FVA">
-                                                            <rect key="frame" x="22" y="7" width="11" height="26.5"/>
+                                                            <rect key="frame" x="14.5" y="-1.5" width="11" height="27"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -340,7 +340,7 @@
                                                         <constraint firstItem="iO7-ra-FVA" firstAttribute="centerX" secondItem="gz3-HE-Z1p" secondAttribute="centerX" id="gRU-Wi-yw9"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
-                                                <size key="customSize" width="55" height="67"/>
+                                                <size key="customSize" width="40" height="40"/>
                                                 <connections>
                                                     <outlet property="dayOfMonth" destination="iO7-ra-FVA" id="evH-9d-W1H"/>
                                                 </connections>

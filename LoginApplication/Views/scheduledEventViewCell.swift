@@ -28,6 +28,12 @@ class scheduledEventViewCell: UITableViewCell {
         return label
     }()
     
+    private let eventFromLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 21, weight: .regular)
+        return label
+    }()
+    
     private let eventMessageLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 19, weight: .regular)
@@ -43,7 +49,7 @@ class scheduledEventViewCell: UITableViewCell {
         contentView.addSubview(gameImageView)
         contentView.addSubview(eventNameLabel)
         contentView.addSubview(eventMessageLabel)
-        
+        contentView.addSubview(eventFromLabel)
     }
     
     required init?(coder: NSCoder) {
@@ -61,6 +67,10 @@ class scheduledEventViewCell: UITableViewCell {
                                         y: eventNameLabel.center.y + 10,
                                      width: contentView.frame.width - 20 - gameImageView.center.x + 60,
                                      height: (contentView.frame.height - 20)/2)
+        eventFromLabel.frame = CGRect(x: gameImageView.center.x + 60 ,
+                                        y: eventMessageLabel.center.y + 10,
+                                     width: contentView.frame.width - 20 - gameImageView.center.x + 60,
+                                     height: (contentView.frame.height - 20)/2)
     }
     
     
@@ -70,6 +80,26 @@ class scheduledEventViewCell: UITableViewCell {
         let date = CalendarHelper.dateFormatter.date(from: model.date)
         self.eventMessageLabel.text = CalendarHelper().timeString(date: date!)
         self.eventNameLabel.text = model.name
+        if(!model.from.isEmpty){
+            DatabaseManager.shared.getDataFor(path: model.from, completion: { [weak self] result in
+                switch result {
+                case .success(let data):
+                    guard let userData = data as? [String: Any],
+                    let username = userData["username"] as? String else {
+                        return
+                    }
+                    if(username != UserDefaults.standard.value(forKey: "username") as! String){
+                        self?.eventFromLabel.text = "With: \(username)"
+                    }
+                    else{
+                        self?.eventFromLabel.text = "Solo event"
+                    }
+                case .failure(let error):
+                    print("Failed to read data with error \(error)")
+                }
+            })
+        }
+        self.eventFromLabel.text = "Solo event"
         let cleanedName = model.name.trimmingCharacters(in: .whitespaces).lowercased()
         var path = ""
         if !cleanedName.isEmpty{
@@ -79,7 +109,7 @@ class scheduledEventViewCell: UITableViewCell {
             case "csgo": path = "games/csgo.png"
             case "siege": path = "games/siege.jpg"
             case "apexlegends": path = "games/apexlegends.jpg"
-            default: print("Sorry no picture for that")
+            default: path = "games/defaultImage.png"
             }
             
             StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
