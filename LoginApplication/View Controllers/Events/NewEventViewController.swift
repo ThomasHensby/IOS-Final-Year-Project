@@ -27,7 +27,7 @@ class NewEventViewController: UIViewController {
 
         //setting date of date picker to current date
         datePicker.date = Date()
-        
+        friendLabel.alpha = 0
     }
     
     @IBAction func saveEvent(_ sender: Any) {
@@ -89,6 +89,7 @@ class NewEventViewController: UIViewController {
         guard let username = result["username"], let email = result["email"] else {
             return
         }
+        friendLabel.alpha = 1
         friendLabel.text = username
         otherUser = email
         invitation = true

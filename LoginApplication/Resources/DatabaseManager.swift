@@ -226,6 +226,7 @@ extension DatabaseManager{
     }
     
     
+    
     public func getAllEvents( completion: @escaping (Result<[Event], Error>) -> Void){
         guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else{
             return
@@ -253,12 +254,8 @@ extension DatabaseManager{
         })
     }
     
-    public func deleteEvent(eventId: String, completion: @escaping ((Bool) -> Void)){
-        guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else{
-            return
-        }
-        let safeEmail = DatabaseManager.safeEmail(email: currentEmail)
-        let ref = database.child("\(safeEmail)/events")
+    public func deleteEvent(email: String, eventId: String, completion: @escaping ((Bool) -> Void)){
+        let ref = database.child("\(email)/events")
         ref.observeSingleEvent(of: .value, with: { snapshot in
             if var events = snapshot.value as? [[String:Any]]{
                 var positionToRemove = 0

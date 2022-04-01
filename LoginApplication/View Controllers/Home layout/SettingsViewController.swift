@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController  {
 
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
@@ -68,7 +68,7 @@ class SettingsViewController: UIViewController {
    
     @IBAction func changeProfilePicture(_ sender: Any){
         
-        
+        presentPhotoActionSheet()
         
     }
     
@@ -83,8 +83,84 @@ class SettingsViewController: UIViewController {
         catch{
             print("Failed to log out")
         }
-            
-        
-        
     }
+    
+    func addNewProfilePicture() {
+        let email = UserDefaults.standard.value(forKey: "email") as! String
+        let safeEmail = DatabaseManager.safeEmail(email: email )
+        guard let image = self.profilePicture.image, let data = image.pngData() else{
+            return
+        }
+        let fileName = "\(safeEmail)_profile_picture.png"
+        StorageManager.shared.deletePicture(email: safeEmail)
+        StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: {
+            result in
+            switch result{
+            case .success(let downloadUrl):
+                UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+            case .failure(let error):
+                print("storage manager error \(error)")
+            }
+        })
+    }
+    
+    
 }
+
+extension SettingsViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    //Create a popup for when user clicks on profile picture
+    func presentPhotoActionSheet(){
+        //action sheet pulls up from bottom asking what the user would like to use
+        let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture", preferredStyle: .actionSheet)
+        //building 3 buttons in actionview to cancel, take photo or choose photo
+        actionSheet.addAction(UIAlertAction(title: "Cancel",
+                                            style: .cancel,
+                                            handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Take Photo",
+                                            style: .default,
+                                            handler: {[weak self]_ in
+                                            self?.presentCamera()
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Choose Photo",
+                                            style: .default,
+                                            handler: {[weak self]_ in
+                                            self?.presentPhotoPicker()
+        }))
+        present(actionSheet, animated: true)
+    }
+    //fucntion to show camera view
+    func presentCamera() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    //function to show users photos
+    func presentPhotoPicker(){
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc,animated: true)
+    }
+    //function when user selects a photo from their photolibrary to edit with
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{
+            return
+        }
+        self.profilePicture.image = selectedImage
+        addNewProfilePicture()
+        }
+        
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+}
+

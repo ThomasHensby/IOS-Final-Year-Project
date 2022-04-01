@@ -41,6 +41,18 @@ final class StorageManager {
         })
     }
     
+    public func deletePicture(email: String){
+        let fileToBeDeleted = storage.child("images/\(email)_profile_picture.png")
+        fileToBeDeleted.delete(completion: {error in
+            if let error = error {
+                print("sorry couldnt be deleted")
+            }
+            else{
+                print("success")
+            }
+        })
+    }
+    
     public enum storageErrors: Error {
         case failedToUpload
         case failedTogetDownloadUrl
