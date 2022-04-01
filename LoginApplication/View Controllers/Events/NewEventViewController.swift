@@ -19,7 +19,7 @@ class NewEventViewController: UIViewController {
 
     @IBOutlet weak var searchForFriends: UIButton!
     
-    var otherUser = ""
+    var otherUser = "none"
     var invitation = false
     
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class NewEventViewController: UIViewController {
     
     @IBAction func saveEvent(_ sender: Any) {
         //Adding a new event
-        let date = CalendarHelper.dateFormatter.string(from: Date())
+        let date = CalendarHelper.dateFormatter.string(from: datePicker.date)
         let eventId = createEventId()
         let guardedGame = nameTF.text?.replacingOccurrences(of: " ", with: "")
         guard !(guardedGame!.isEmpty),
@@ -61,7 +61,7 @@ class NewEventViewController: UIViewController {
     ///Create a unique ID
     private func createEventId() -> String{
         //date, otherUserEmail, senderEmail, random int
-        let dateString = CalendarHelper.dateFormatter.string(from: Date())
+        let dateString = CalendarHelper.dateFormatter.string(from: datePicker.date)
         guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") else {
             return ""
         }
