@@ -188,20 +188,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-        //begin delete
+            //begin delete
             guard let eventId = eventsList[indexPath.row].eventId else { return }
-            self.eventsList.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .right)
-            
-            DatabaseManager.shared.deleteEvent(eventId: eventId, completion: { success in
-                if !success {
-                    print("delete failed")
-                }
+            if(eventsList[indexPath.row].inviteWith.isEmpty){
+                self.eventsList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .right)
                 
-            })
-            tableView.endUpdates()
+                DatabaseManager.shared.deleteEvent(eventId: eventId, completion: { success in
+                    if !success {
+                        print("delete failed")
+                    }
+                })
+                tableView.endUpdates()
+            }
+            else{
+                print("sorry cannot delete events with people")
+            }
         }
     }
-    
     
 }
