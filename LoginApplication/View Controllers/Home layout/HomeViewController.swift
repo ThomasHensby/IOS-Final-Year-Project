@@ -71,9 +71,6 @@ class HomeViewController: UIViewController {
         })
     }
     
-    
-            
-    
     //setting selected dates
     func setCellView(){
         let width = (collectionView.frame.size.width - 2)/9
