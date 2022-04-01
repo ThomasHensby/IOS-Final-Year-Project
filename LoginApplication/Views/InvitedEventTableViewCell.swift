@@ -107,7 +107,7 @@ class InvitedEventTableViewCell: UITableViewCell {
         self.dateMessageLabel.text = model.date
         self.eventNameLabel.text = model.name
         if(!model.from.isEmpty){
-            DatabaseManager.shared.getDataFor(path: model.from, completion: { [weak self] result in
+            DatabaseManager.shared.getDataFor(path: model.inviteWith, completion: { [weak self] result in
                 switch result {
                 case .success(let data):
                     guard let userData = data as? [String: Any],

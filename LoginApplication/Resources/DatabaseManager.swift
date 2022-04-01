@@ -170,7 +170,8 @@ extension DatabaseManager{
                 "date": dateOfEvent,
                 "name": nameOfEvent,
                 "otherUserEmail": otherUserEmail,
-                "invite": invite
+                "invite": invite,
+                "from": safeEmail
             ]
             
             let recipientEventData: [String: Any] = [
@@ -178,7 +179,8 @@ extension DatabaseManager{
                 "date": dateOfEvent,
                 "name": nameOfEvent,
                 "otherUserEmail": safeEmail,
-                "invite": invite
+                "invite": invite,
+                "from" : safeEmail
             ]
             
             //update the recipient events entry
@@ -240,10 +242,11 @@ extension DatabaseManager{
                       let dateOfEvent = dictionary["date"] as? String,
                       let nameOfEvent = dictionary["name"] as? String,
                       let invite = dictionary["invite"] as? Bool,
-                      let from = dictionary["otherUserEmail"]as? String else{
+                      let initeWith = dictionary["otherUserEmail"]as? String,
+                      let from = dictionary["from"] as? String else{
                           return nil
                       }
-                return Event(eventId: eventId, name: nameOfEvent, date: dateOfEvent, invite: invite, from: from)
+                return Event(eventId: eventId, name: nameOfEvent, date: dateOfEvent, invite: invite, inviteWith: initeWith, from:from)
                       
             })
             completion(.success(events))

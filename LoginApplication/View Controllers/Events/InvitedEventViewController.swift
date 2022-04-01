@@ -22,6 +22,7 @@ class InvitedEventViewController: UIViewController {
         invitesTableView.delegate = self
         invitesTableView.dataSource = self
         listenForEvent()
+        invitesTableView.reloadData()
     }
     
     func listenForEvent(){
@@ -30,11 +31,12 @@ class InvitedEventViewController: UIViewController {
             switch result{
             case .success(let invitations):
                 print("successFully got event models")
+                self?.invitationToEvent.removeAll()
                 guard !invitations.isEmpty else{
                     return
                 }
                 for event in invitations {
-                    if(event.invite == true)  {
+                    if(event.invite == true && event.from == event.inviteWith)  {
                         self?.invitationToEvent.append(event)
                     }
                 }

@@ -1187,8 +1187,8 @@
             filePath = "LoginApplication/Resources/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
             landmarkName = "getAllEvents(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1235,8 +1235,8 @@
             filePath = "LoginApplication/Resources/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "createNewEvent(eventId:dateOfEvent:otherUserEmail:String:nameOfEvent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1251,8 +1251,8 @@
             filePath = "LoginApplication/Resources/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "createNewEvent(eventId:dateOfEvent:otherUserEmail:String:nameOfEvent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1267,8 +1267,8 @@
             filePath = "LoginApplication/Resources/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "createNewEvent(eventId:dateOfEvent:otherUserEmail:String:nameOfEvent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1283,8 +1283,8 @@
             filePath = "LoginApplication/Resources/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "createNewEvent(eventId:dateOfEvent:otherUserEmail:String:nameOfEvent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1299,8 +1299,8 @@
             filePath = "LoginApplication/Resources/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "createNewEvent(eventId:dateOfEvent:otherUserEmail:String:nameOfEvent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1315,8 +1315,8 @@
             filePath = "LoginApplication/View Controllers/Events/InvitedEventViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1331,8 +1331,8 @@
             filePath = "LoginApplication/View Controllers/Events/InvitedEventViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "listenForEvent()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1347,8 +1347,8 @@
             filePath = "LoginApplication/Resources/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "changeInvite(eventId:otherUserEmail:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1363,8 +1363,8 @@
             filePath = "LoginApplication/Resources/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "changeInvite(eventId:otherUserEmail:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1373,22 +1373,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "AFD17724-A078-44C1-814C-01D3D4678238"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LoginApplication/Resources/DatabaseManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
-            landmarkName = "changeInvite(eventId:otherUserEmail:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "486CD994-80AD-4758-896B-8FBE40316847"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1404,6 +1388,22 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "486CD994-80AD-4758-896B-8FBE40316847"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoginApplication/Resources/DatabaseManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
+            landmarkName = "changeInvite(eventId:otherUserEmail:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             uuid = "C6895116-F520-454C-AA1F-D54A1A9AE413"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1411,9 +1411,57 @@
             filePath = "LoginApplication/Resources/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "changeInvite(eventId:otherUserEmail:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94792B92-9432-4BFD-881E-AAE69FA4B5ED"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoginApplication/View Controllers/Home layout/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "setCellView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D0A336CA-1DFD-4002-8CA5-D3855C5BDF18"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoginApplication/View Controllers/Home layout/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "setCellView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B7DC069-4B94-4AC1-BC56-1C51C421B3DF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoginApplication/Views/InvitedEventTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "configure(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
