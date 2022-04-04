@@ -17,31 +17,10 @@ class NewConversationViewController: UIViewController {
     //has fetched is performed in case one user being itself
     private var hasFetched = false
 
-    //create a UI seachbar
-    private let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for friends..."
-        return searchBar
-    } ()
+    let noResultsLabel = ConversationView.shared.noResultsLabel
+    let tableView = ConversationView.shared.tableView
+    let searchBar = ConversationView.shared.searchBar
     
-    //create a UI tableView
-    private let tableView: UITableView = {
-        let table = UITableView()
-        table.isHidden = true
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        return table
-    }()
-    
-    //create a label to outline no results after search
-    private let noResultsLabel: UILabel = {
-        let label = UILabel()
-        label.isHidden = true
-        label.text = "No Results"
-        label.textAlignment = .center
-        label.textColor = .gray
-        label.font = .systemFont(ofSize: 21, weight: .medium)
-        return label
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()

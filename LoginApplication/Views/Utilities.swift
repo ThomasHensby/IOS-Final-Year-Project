@@ -28,6 +28,7 @@ class Utilities {
         
     }
     
+   
     static func styleProfilePicture(_ imageView: UIImageView)
     {
         imageView.layer.borderWidth = 3

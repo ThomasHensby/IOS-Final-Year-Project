@@ -148,6 +148,20 @@ extension DatabaseManager{
 /// Sending events to database
 extension DatabaseManager{
     
+    
+    
+    /*
+    events[
+            [
+                "Event_id": String
+                "Name": name of event
+                "date": date()
+                "invite": True/false
+                "inviteWith": String
+                "from": String
+            ]
+        ]
+    */
     public func createNewEvent(eventId: String, dateOfEvent: String, otherUserEmail: String, String invite: Bool, nameOfEvent: String, completion: @escaping (Bool) -> Void)
     {
         guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else{

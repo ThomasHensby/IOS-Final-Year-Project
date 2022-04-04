@@ -45,6 +45,7 @@
 		9AC6100727E7ADE5000C5555 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6100627E7ADE5000C5555 /* StorageManager.swift */; };
 		9ADC6DCE27BAC8A500CDC052 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADC6DCD27BAC8A500CDC052 /* CalendarHelper.swift */; };
 		9ADC6DD027BAC92000CDC052 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADC6DCF27BAC92000CDC052 /* CalendarCell.swift */; };
+		9AEFF46B27FB1870007A5684 /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEFF46A27FB1870007A5684 /* ConversationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		9AC6100627E7ADE5000C5555 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		9ADC6DCD27BAC8A500CDC052 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		9ADC6DCF27BAC92000CDC052 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		9AEFF46A27FB1870007A5684 /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				9A2DCACE27F096D100B6A521 /* ConversationTableViewCell.swift */,
 				9A2DCAF427F23FA700B6A521 /* InvitedEventTableViewCell.swift */,
 				9A2DCAF827F3588300B6A521 /* scheduledEventViewCell.swift */,
+				9AEFF46A27FB1870007A5684 /* ConversationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,13 +153,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		9A2DCAE927F2343400B6A521 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		9A2DCAEE27F2360000B6A521 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,9 +166,9 @@
 		9A2DCAEF27F2363200B6A521 /* Conversations */ = {
 			isa = PBXGroup;
 			children = (
+				9AC6100227E56490000C5555 /* NewConversationViewController.swift */,
 				9AC60FFC27E11DFE000C5555 /* ChatViewController.swift */,
 				9AC60FF827E1124C000C5555 /* MessagerViewController.swift */,
-				9AC6100227E56490000C5555 /* NewConversationViewController.swift */,
 			);
 			path = Conversations;
 			sourceTree = "<group>";
@@ -218,7 +214,6 @@
 				9A2DCAE627F2324F00B6A521 /* Views */,
 				9A2DCAE827F233FE00B6A521 /* Models */,
 				9A2DCAE727F232E100B6A521 /* Resources */,
-				9A2DCAE927F2343400B6A521 /* ViewModels */,
 				9A141FC0278360E1005D0362 /* View Controllers */,
 				9AACDDF0277B871400110099 /* Info.plist */,
 			);
@@ -333,6 +328,7 @@
 				9A141FBF278360CE005D0362 /* HomeViewController.swift in Sources */,
 				9AC60FFD27E11DFE000C5555 /* ChatViewController.swift in Sources */,
 				9A5D4652278DFCB20018A096 /* Constants.swift in Sources */,
+				9AEFF46B27FB1870007A5684 /* ConversationView.swift in Sources */,
 				9AC6100327E56491000C5555 /* NewConversationViewController.swift in Sources */,
 				9AC60FCE27DED59B000C5555 /* NewEventViewController.swift in Sources */,
 				9ADC6DD027BAC92000CDC052 /* CalendarCell.swift in Sources */,

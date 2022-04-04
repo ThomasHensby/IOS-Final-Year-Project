@@ -71,7 +71,7 @@ class HomeViewController: UIViewController {
         })
     }
     
-    //setting selected dates
+    //setting the collectionviews styling elements for the boxes
     func setCellView(){
         let width = (collectionView.frame.size.width - 2)/9
         let height = (collectionView.frame.size.height - 50)
@@ -81,7 +81,7 @@ class HomeViewController: UIViewController {
     }
     
     
-    
+    //Sets up the complete week view of the schedule
     func setWeekView(){
         totalSquares.removeAll()
         
@@ -126,9 +126,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calCell", for: indexPath) as! CalendarCell
+        //setting the date to the individual squares
         let date = totalSquares[indexPath.item]
         cell.dayOfMonth.text = String(CalendarHelper().dayOfMonth(date: date))
-        
+        //setting the background colour to blue if its the current date
         if(date == selectedDate){
             cell.backgroundColor = UIColor.systemBlue
         }
