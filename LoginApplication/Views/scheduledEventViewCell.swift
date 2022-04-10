@@ -41,6 +41,8 @@ class scheduledEventViewCell: UITableViewCell {
         return label
     }()
     
+    
+    
 
     
 

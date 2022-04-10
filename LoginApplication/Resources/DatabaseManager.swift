@@ -7,7 +7,7 @@
 
 import Foundation
 import FirebaseDatabase
-import FirebaseMLModelDownloader
+//import FirebaseMLModelDownloader
 
 /// Manager object to read and write data to real time firbase database
 final class DatabaseManager {
@@ -18,6 +18,8 @@ final class DatabaseManager {
     ///Conection to the Firebase NOSQL server - Due to it being a europe server have to send in link
     private let database = Database.database(url: "https://game-helper-8d79a-default-rtdb.europe-west1.firebasedatabase.app/").reference()
     
+    
+   
 }
 
 ///Extension built for general function where database manager is needed

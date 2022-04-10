@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f3o-ST-wEL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f3o-ST-wEL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -404,6 +404,13 @@
                                         <color key="separatorColor" systemColor="systemPinkColor"/>
                                         <color key="sectionIndexColor" systemColor="labelColor"/>
                                         <color key="sectionIndexBackgroundColor" systemColor="systemGreenColor"/>
+                                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Events" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JFh-dk-4TF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <connections>
                                             <outlet property="dataSource" destination="Ttl-pm-t77" id="9XP-fE-Oqf"/>
                                             <outlet property="delegate" destination="Ttl-pm-t77" id="40T-vr-B9J"/>
@@ -458,13 +465,14 @@
                         <outlet property="collectionView" destination="EMX-SI-UkI" id="8je-Fq-maR"/>
                         <outlet property="leading" destination="vgU-24-rXs" id="PH5-fO-nc5"/>
                         <outlet property="monthLabel" destination="Fh7-Wp-DQY" id="fmx-ud-8gW"/>
+                        <outlet property="noEvents" destination="JFh-dk-4TF" id="gKR-kX-jhd"/>
                         <outlet property="tableView" destination="vfP-hu-CNN" id="djf-hS-nN5"/>
                         <outlet property="trailing" destination="gKs-BO-G7u" id="fH2-aY-jLN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cnw-gg-z5h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3883" y="155"/>
+            <point key="canvasLocation" x="3882.608695652174" y="154.6875"/>
         </scene>
         <!--Event Creation-->
         <scene sceneID="Ctc-kO-4Fq">
@@ -599,6 +607,13 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uaf-Yo-zvh">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Events" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SsP-Q1-NXW">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sL8-f4-m9M"/>
@@ -613,6 +628,7 @@
                     <navigationItem key="navigationItem" title="Event Invites" id="tkZ-GB-fbu"/>
                     <connections>
                         <outlet property="invitesTableView" destination="uaf-Yo-zvh" id="Sfr-Pq-xjw"/>
+                        <outlet property="noEvents" destination="SsP-Q1-NXW" id="yNM-ye-02q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Dk-uN-SdD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

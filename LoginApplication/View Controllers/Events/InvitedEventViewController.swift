@@ -9,7 +9,8 @@ import UIKit
 
 class InvitedEventViewController: UIViewController {
     
-   
+    @IBOutlet weak var noEvents: UILabel!
+    
     private var invitedEvent = Event().self
     public var invitationToEvent = [Event]()
     var selectedDate = Date()
@@ -23,6 +24,7 @@ class InvitedEventViewController: UIViewController {
         invitesTableView.dataSource = self
         listenForEvent()
         invitesTableView.reloadData()
+        
     }
     
     func listenForEvent(){
@@ -56,6 +58,9 @@ class InvitedEventViewController: UIViewController {
 extension InvitedEventViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(invitationToEvent.count != 0){
+            noEvents.alpha = 0
+        }
         return invitationToEvent.count
     }
 
@@ -68,6 +73,28 @@ extension InvitedEventViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        tableView.beginUpdates()
+        return .delete
+        
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //begin delete
+            guard let invitedUser = invitationToEvent[indexPath.row].inviteWith else {return}
+            guard let user = invitationToEvent[indexPath.row].from else {return}
+            guard let eventId = invitationToEvent[indexPath.row].eventId else { return }
+            if(invitationToEvent[indexPath.row].inviteWith != "none"){
+                DatabaseManager.shared.deleteEvent(email: invitedUser, eventId: eventId, completion: { success in
+                    if !success { print("delete failed")}
+                })
+                DatabaseManager.shared.deleteEvent(email: user, eventId: eventId, completion: { success in
+                    if !success { print("delete failed")}
+                })
+                self.invitationToEvent.remove(at: indexPath.row)
+                tableView.endUpdates()
+            }
+        }
+    }
     
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,6 +28,7 @@
 		9A2DCAF927F3588300B6A521 /* scheduledEventViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DCAF827F3588300B6A521 /* scheduledEventViewCell.swift */; };
 		9A5D4605278C7B210018A096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D4604278C7B210018A096 /* LoginViewController.swift */; };
 		9A5D4652278DFCB20018A096 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D4651278DFCB20018A096 /* Constants.swift */; };
+		9A8316EC28036D3F00FFD356 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8316EB28036D3F00FFD356 /* Testing.swift */; };
 		9A863F4C278C628A00E098E6 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A863F4B278C628900E098E6 /* Utilities.swift */; };
 		9AACDDE3277B871200110099 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACDDE2277B871200110099 /* AppDelegate.swift */; };
 		9AACDDE5277B871200110099 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACDDE4277B871200110099 /* SceneDelegate.swift */; };
@@ -61,6 +62,7 @@
 		9A2DCAF827F3588300B6A521 /* scheduledEventViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scheduledEventViewCell.swift; sourceTree = "<group>"; };
 		9A5D4604278C7B210018A096 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9A5D4651278DFCB20018A096 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9A8316EB28036D3F00FFD356 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		9A863F4B278C628900E098E6 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9AACDDDF277B871200110099 /* LoginApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AACDDE2277B871200110099 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				9ADC6DCD27BAC8A500CDC052 /* CalendarHelper.swift */,
 				9AACDDE4277B871200110099 /* SceneDelegate.swift */,
 				9AACDDE2277B871200110099 /* AppDelegate.swift */,
+				9A8316EB28036D3F00FFD356 /* Testing.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -268,7 +271,7 @@
 				};
 			};
 			buildConfigurationList = 9AACDDDA277B871200110099 /* Build configuration list for PBXProject "LoginApplication" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -331,6 +334,7 @@
 				9AEFF46B27FB1870007A5684 /* ConversationView.swift in Sources */,
 				9AC6100327E56491000C5555 /* NewConversationViewController.swift in Sources */,
 				9AC60FCE27DED59B000C5555 /* NewEventViewController.swift in Sources */,
+				9A8316EC28036D3F00FFD356 /* Testing.swift in Sources */,
 				9ADC6DD027BAC92000CDC052 /* CalendarCell.swift in Sources */,
 				9A2DCAEB27F234B500B6A521 /* ConversationsModels.swift in Sources */,
 				9A2DCAF727F32C4100B6A521 /* EventModel.swift in Sources */,

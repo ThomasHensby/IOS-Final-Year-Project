@@ -12,7 +12,8 @@ import FirebaseAuth
 
 class HomeViewController: UIViewController {
     
-   
+    @IBOutlet weak var noEvents: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var leading: NSLayoutConstraint!
@@ -35,6 +36,7 @@ class HomeViewController: UIViewController {
         setWeekView()
         tableView.register(scheduledEventViewCell.self, forCellReuseIdentifier: scheduledEventViewCell.identifier)
         listenForEvent()
+        noEvents.alpha = 1
     }
     
     
@@ -156,9 +158,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-            //getting number of events
-            eventsForDate(date: selectedDate).count
+            
             //Add db call
+        if(eventsForDate(date: selectedDate).count != 0){
+            noEvents.alpha = 0
+        }
+        //getting number of events
+        return eventsForDate(date: selectedDate).count
         
     }
         
@@ -190,7 +196,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             guard let invitedUser = eventsList[indexPath.row].inviteWith else {return}
             guard let user = eventsList[indexPath.row].from else {return}
             guard let eventId = eventsList[indexPath.row].eventId else { return }
-            if(eventsList[indexPath.row].inviteWith.isEmpty){
+            if(eventsList[indexPath.row].inviteWith == "none"){
                 self.eventsList.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .right)
                 
@@ -200,12 +206,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 tableView.endUpdates()
             }
             else{
+                self.eventsList.remove(at: indexPath.row)
                 DatabaseManager.shared.deleteEvent(email: invitedUser, eventId: eventId, completion: { success in
                     if !success { print("delete failed")}
                 })
                 DatabaseManager.shared.deleteEvent(email: user, eventId: eventId, completion: { success in
                     if !success { print("delete failed")}
                 })
+                
                 tableView.endUpdates()
             }
         }

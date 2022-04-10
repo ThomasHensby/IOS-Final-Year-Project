@@ -7,7 +7,7 @@
 
 import Foundation
 import FirebaseStorage
-import FirebaseMLModelDownloader
+//import FirebaseMLModelDownloader
 
 ///To get, getch and upload files to firebase storage
 final class StorageManager {
@@ -15,6 +15,9 @@ final class StorageManager {
     static let shared = StorageManager()
     
     private let storage = Storage.storage().reference()
+    
+    
+    
     
     public typealias uploadPictureCompletion = (Result<String, Error>) -> Void
     
