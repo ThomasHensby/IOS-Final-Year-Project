@@ -183,7 +183,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="3lH-8J-ZxI">
-                                <rect key="frame" x="40" y="388" width="334" height="363"/>
+                                <rect key="frame" x="40" y="388" width="334" height="358"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="phs-mr-XXG">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="42.5"/>
@@ -211,8 +211,8 @@
                                             <action selector="signUpTapped:" destination="SiV-k5-BZv" eventType="touchUpInside" id="Fag-XS-wrv"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXe-1W-gYL">
-                                        <rect key="frame" x="0.0" y="337.5" width="334" height="25.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXe-1W-gYL">
+                                        <rect key="frame" x="0.0" y="337.5" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
@@ -222,7 +222,6 @@
                                     <constraint firstItem="b36-Qj-PTh" firstAttribute="height" secondItem="phs-mr-XXG" secondAttribute="height" multiplier="1.17647" id="5Zn-OM-SUh"/>
                                     <constraint firstItem="b36-Qj-PTh" firstAttribute="height" secondItem="0rf-JD-Lmn" secondAttribute="height" multiplier="1.17647" id="a23-Vs-WLY"/>
                                     <constraint firstItem="b36-Qj-PTh" firstAttribute="height" secondItem="ycZ-Fq-Cp2" secondAttribute="height" multiplier="1.17647" id="eOR-dX-xrh"/>
-                                    <constraint firstItem="b36-Qj-PTh" firstAttribute="height" secondItem="BXe-1W-gYL" secondAttribute="height" multiplier="1.95122" id="zNM-8I-1QH"/>
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wil-E1-dtT">

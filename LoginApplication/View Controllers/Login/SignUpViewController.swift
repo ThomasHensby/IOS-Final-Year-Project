@@ -58,7 +58,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         
         if Utilities.isPasswordValid(cleanedPassword) == false {
             //password isnt secure
-            return "Please make sure your password is at /n least 8 characters, contains a special character and a number."
+            return "Please make sure your password is at \n least 8 characters, contains a special character \n and a number."
         }
         
         return nil
@@ -75,7 +75,8 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         let error = validateFields()
         if error != nil {
             //something wrong with fields
-            showError("error!")
+            
+            showError(error!)
             
         }
         else {
