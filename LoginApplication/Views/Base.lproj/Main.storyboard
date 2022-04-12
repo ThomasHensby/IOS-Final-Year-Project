@@ -183,7 +183,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="3lH-8J-ZxI">
-                                <rect key="frame" x="40" y="388" width="334" height="358"/>
+                                <rect key="frame" x="40" y="388" width="334" height="439"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="phs-mr-XXG">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="42.5"/>
@@ -215,6 +215,12 @@
                                         <rect key="frame" x="0.0" y="337.5" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Successfully Made Account Please go to Sign in page" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMf-MW-wCg">
+                                        <rect key="frame" x="0.0" y="398" width="334" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -249,6 +255,7 @@
                         <outlet property="passwordTextField" destination="0rf-JD-Lmn" id="ceb-HH-Mf5"/>
                         <outlet property="profilePicture" destination="Wil-E1-dtT" id="ZfE-QE-iiI"/>
                         <outlet property="signUpButton" destination="b36-Qj-PTh" id="Swk-ez-Qkr"/>
+                        <outlet property="successLabel" destination="wMf-MW-wCg" id="Z7i-KR-V4c"/>
                         <outlet property="usernameTextField" destination="phs-mr-XXG" id="EWa-H5-Jig"/>
                     </connections>
                 </viewController>

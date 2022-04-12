@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class SignUpViewController: UIViewController, UINavigationControllerDelegate {
 
+    @IBOutlet weak var successLabel: UILabel!
     
     @IBOutlet weak var profilePicture: UIImageView!
     
@@ -129,8 +130,9 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
                     } )
                 
                   
-                    //transition to homepage
-                    strongSelf.transitionToHome()
+                    //message user
+                    self?.successLabel.alpha = 1
+                    
                     
                 })
             })
@@ -146,12 +148,12 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         errorLabel.alpha = 1
     }
     
-    func transitionToHome() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainNav = storyboard.instantiateViewController(identifier: "mainNav")
-        
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainNav)
-    }
+//    func transitionToHome() {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let mainNav = storyboard.instantiateViewController(identifier: "mainNav")
+//
+//        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainNav)
+//    }
     
 }
 
