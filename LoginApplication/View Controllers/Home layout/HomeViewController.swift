@@ -32,11 +32,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.storyboard?.instantiateViewController(withIdentifier: "mainNav")
+        noEvents.alpha = 1
         setCellView()
         setWeekView()
         tableView.register(scheduledEventViewCell.self, forCellReuseIdentifier: scheduledEventViewCell.identifier)
         listenForEvent()
-        noEvents.alpha = 1
+        tableView.reloadData()
     }
     
     
@@ -69,6 +70,9 @@ class HomeViewController: UIViewController {
                 }
             case .failure(let error):
                 print("Failed to get events \(error)")
+                self?.eventsList.removeAll()
+                self?.tableView.reloadData()
+                self?.noEvents.alpha = 1
             }
         })
     }
@@ -185,7 +189,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        tableView.beginUpdates()
+    
         return .delete
         
     }
@@ -195,27 +199,29 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             //begin delete
             guard let invitedUser = eventsList[indexPath.row].inviteWith else {return}
             guard let user = eventsList[indexPath.row].from else {return}
+            let currentEmail =  DatabaseManager.safeEmail(email: UserDefaults.standard.value(forKey: "email") as! String)
             guard let eventId = eventsList[indexPath.row].eventId else { return }
-            if(eventsList[indexPath.row].inviteWith == "none"){
-                self.eventsList.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .right)
-                
+            tableView.beginUpdates()
+            self.eventsList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .right)
+            if(invitedUser == "none"){
+            
                 DatabaseManager.shared.deleteEvent(email: user, eventId: eventId, completion: { success in
                     if !success { print("delete failed")}
                 })
-                tableView.endUpdates()
             }
             else{
-                self.eventsList.remove(at: indexPath.row)
+                
                 DatabaseManager.shared.deleteEvent(email: invitedUser, eventId: eventId, completion: { success in
                     if !success { print("delete failed")}
                 })
-                DatabaseManager.shared.deleteEvent(email: user, eventId: eventId, completion: { success in
+                DatabaseManager.shared.deleteEvent(email: currentEmail, eventId: eventId, completion: { success in
                     if !success { print("delete failed")}
                 })
                 
-                tableView.endUpdates()
             }
+            tableView.reloadData()
+            tableView.endUpdates()
         }
     }
     

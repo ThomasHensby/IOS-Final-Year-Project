@@ -74,7 +74,7 @@ extension InvitedEventViewController: UITableViewDelegate, UITableViewDataSource
         return 120
     }
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        tableView.beginUpdates()
+        
         return .delete
         
     }
@@ -83,15 +83,20 @@ extension InvitedEventViewController: UITableViewDelegate, UITableViewDataSource
             //begin delete
             guard let invitedUser = invitationToEvent[indexPath.row].inviteWith else {return}
             guard let user = invitationToEvent[indexPath.row].from else {return}
+            let email = UserDefaults.standard.value(forKey: "email") as! String
+            let currentEmail = DatabaseManager.safeEmail(email: email)
             guard let eventId = invitationToEvent[indexPath.row].eventId else { return }
-            if(invitationToEvent[indexPath.row].inviteWith != "none"){
+            tableView.beginUpdates()
+            self.invitationToEvent.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .right)
+            if(invitedUser == user){
                 DatabaseManager.shared.deleteEvent(email: invitedUser, eventId: eventId, completion: { success in
                     if !success { print("delete failed")}
                 })
-                DatabaseManager.shared.deleteEvent(email: user, eventId: eventId, completion: { success in
+                DatabaseManager.shared.deleteEvent(email: currentEmail, eventId: eventId, completion: { success in
                     if !success { print("delete failed")}
                 })
-                self.invitationToEvent.remove(at: indexPath.row)
+                
                 tableView.endUpdates()
             }
         }
