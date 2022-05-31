@@ -5,5 +5,8 @@ This is a application that was built as part of my final year dissertation proje
 Named: An application to choose and schedule the playing of 
 games with friends.
 
-The applciation is a fully working IOS app with a firebase backend written in SWIFT.
-I had to learn Swift, Using Apis and Firebase for this project. 
+The appliciation is a fully working IOS app written in SWIFT with a firebase NOSQL server attached.
+
+Within this project I had to learn Swift, Using Apis, Firebase and testing. 
+
+The whole project was created by me and a full dissertation created to explain the research, implementation, testing and evaluation.
